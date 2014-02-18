@@ -8,3 +8,59 @@ Command-line arguments:  -os macosx -ws cocoa -arch x86 -product org.eclipse.epp
 
 !ENTRY org.eclipse.core.net 1 0 2014-02-18 12:05:14.917
 !MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.egit.core 4 0 2014-02-18 12:32:56.499
+!MESSAGE An exception occurred during push on URI https://github.com/HistoireDeBabar/ExamTimetable.git: https://github.com/HistoireDeBabar/ExamTimetable.git: not authorized
+!STACK 0
+org.eclipse.jgit.errors.TransportException: https://github.com/HistoireDeBabar/ExamTimetable.git: not authorized
+	at org.eclipse.jgit.transport.TransportHttp.connect(TransportHttp.java:479)
+	at org.eclipse.jgit.transport.TransportHttp.openPush(TransportHttp.java:398)
+	at org.eclipse.jgit.transport.PushProcess.execute(PushProcess.java:154)
+	at org.eclipse.jgit.transport.Transport.push(Transport.java:1173)
+	at org.eclipse.egit.core.op.PushOperation.run(PushOperation.java:190)
+	at org.eclipse.egit.ui.internal.push.PushOperationUI.execute(PushOperationUI.java:164)
+	at org.eclipse.egit.ui.internal.push.PushOperationUI$1.run(PushOperationUI.java:226)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.eclipse.egit.core 4 0 2014-02-18 12:33:31.223
+!MESSAGE An exception occurred during push on URI https://github.com/HistoireDeBabar/ExamTimetable.git: https://github.com/HistoireDeBabar/ExamTimetable.git: not authorized
+!STACK 0
+org.eclipse.jgit.errors.TransportException: https://github.com/HistoireDeBabar/ExamTimetable.git: not authorized
+	at org.eclipse.jgit.transport.TransportHttp.connect(TransportHttp.java:479)
+	at org.eclipse.jgit.transport.TransportHttp.openPush(TransportHttp.java:398)
+	at org.eclipse.jgit.transport.PushProcess.execute(PushProcess.java:154)
+	at org.eclipse.jgit.transport.Transport.push(Transport.java:1173)
+	at org.eclipse.egit.core.op.PushOperation.run(PushOperation.java:190)
+	at org.eclipse.egit.ui.internal.push.PushOperationUI.execute(PushOperationUI.java:164)
+	at org.eclipse.egit.ui.internal.push.PushOperationUI$1.run(PushOperationUI.java:226)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.eclipse.egit.core 4 0 2014-02-18 12:33:44.050
+!MESSAGE An exception occurred during push on URI https://github.com/HistoireDeBabar/ExamTimetable.git: https://github.com/HistoireDeBabar/ExamTimetable.git: not authorized
+!STACK 0
+org.eclipse.jgit.api.errors.TransportException: https://github.com/HistoireDeBabar/ExamTimetable.git: not authorized
+	at org.eclipse.jgit.api.PushCommand.call(PushCommand.java:160)
+	at org.eclipse.egit.core.op.PushOperation.run(PushOperation.java:221)
+	at org.eclipse.egit.ui.internal.push.PushOperationUI.execute(PushOperationUI.java:164)
+	at org.eclipse.egit.ui.internal.push.PushOperationUI$1.run(PushOperationUI.java:226)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+Caused by: org.eclipse.jgit.errors.TransportException: https://github.com/HistoireDeBabar/ExamTimetable.git: not authorized
+	at org.eclipse.jgit.transport.TransportHttp.connect(TransportHttp.java:479)
+	at org.eclipse.jgit.transport.TransportHttp.openPush(TransportHttp.java:398)
+	at org.eclipse.jgit.transport.PushProcess.execute(PushProcess.java:154)
+	at org.eclipse.jgit.transport.Transport.push(Transport.java:1173)
+	at org.eclipse.jgit.api.PushCommand.call(PushCommand.java:156)
+	... 4 more
+
+!ENTRY org.eclipse.egit.core 4 0 2014-02-18 12:36:21.752
+!MESSAGE An exception occurred during push on URI https://github.com/HistoireDeBabar/ExamTimetable.git: https://github.com/HistoireDeBabar/ExamTimetable.git: not authorized
+!STACK 0
+org.eclipse.jgit.errors.TransportException: https://github.com/HistoireDeBabar/ExamTimetable.git: not authorized
+	at org.eclipse.jgit.transport.TransportHttp.connect(TransportHttp.java:479)
+	at org.eclipse.jgit.transport.TransportHttp.openPush(TransportHttp.java:398)
+	at org.eclipse.jgit.transport.PushProcess.execute(PushProcess.java:154)
+	at org.eclipse.jgit.transport.Transport.push(Transport.java:1173)
+	at org.eclipse.egit.core.op.PushOperation.run(PushOperation.java:190)
+	at org.eclipse.egit.ui.internal.push.PushOperationUI.execute(PushOperationUI.java:164)
+	at org.eclipse.egit.ui.internal.push.PushOperationUI$1.run(PushOperationUI.java:226)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
