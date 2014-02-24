@@ -1,0 +1,9 @@
+package examTimetable;
+
+public interface Room {
+
+	public Room getRoom();
+	public int getCapacity();
+	public Boolean isAvailable(int length);
+	public void bookRoom(Exam exam);
+}

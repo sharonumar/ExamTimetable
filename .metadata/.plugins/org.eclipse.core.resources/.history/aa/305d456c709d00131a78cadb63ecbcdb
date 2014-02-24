@@ -1,0 +1,10 @@
+package examTimetable;
+
+public interface Exam {
+	public Exam getInstance();
+	public int getDuration();
+	public Boolean isBooked();
+	public RoomType getRoomType();
+	public void setExam(Room room);
+	public void removeBooking();
+}

@@ -1,0 +1,13 @@
+import java.util.*;
+
+public class ExamTimetable {
+private Exam exam;
+private Room room;
+private Module module;
+
+public ExamTimetable(Module module) {
+	this.module = module;
+	exam = module.getExam();
+}
+
+}

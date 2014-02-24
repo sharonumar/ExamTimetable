@@ -1,0 +1,6 @@
+import java.util.*;
+
+public class ExamTimetable {
+private Exam exam;
+private List<Module> allModules = new ArrayList<Module>();
+}

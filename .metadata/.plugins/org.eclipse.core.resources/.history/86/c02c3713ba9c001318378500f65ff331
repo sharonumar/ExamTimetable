@@ -1,0 +1,37 @@
+import java.util.*;
+
+public class ExamTimetable {
+private ArrayList<Room> allRooms = new ArrayList<Room>();
+
+public ExamTimetable() {
+	allRooms.getRooms();
+}
+
+public ScheduleExam(Module module) {
+	//get all the students taking this module.
+	ArrayList<Student> allStudents = new ArrayList<Student>();
+	allStudents = module.getStudents();
+	//get the duration of the exam.
+	//possibly a seperate method to calculate how many
+	//slots are needed.
+	int examDuration = module.getExam().getDuration();
+	//get the capacity which this exam needs.
+	int capacity = allStudents.size();
+	
+	//check whether has already been set.
+	while(!module.getExam().isSet()) {
+		//getTimeStart() could (in another method) find the next time slot
+		//available.  If multiple rooms are available in any instance, the largest
+		//room is returned.  Ideally, the best possible fit should be returned.
+		Time startTime.getStartTime()
+		for(Room room: allRooms){
+			if(getAvailability(startTime, examDuration))
+		}
+		
+	}
+	
+}
+
+
+
+}
