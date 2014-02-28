@@ -1,0 +1,22 @@
+package examTimetable;
+
+public enum Hour implements Hours {
+	A,B,C,D,E,F,G;
+	private Boolean booked;
+ 
+	private Hour() {
+		booked = false;
+	}
+ 
+ public Boolean isAvailable() {
+	 return booked;
+ }
+ 
+ public void unreseve() {
+	 booked = false;
+ }
+ 
+ public void book() {
+	 booked = true;
+ }
+}

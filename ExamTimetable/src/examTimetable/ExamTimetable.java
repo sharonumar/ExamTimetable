@@ -9,6 +9,7 @@ public class ExamTimetable {
 	private List<Day> availableTime = new ArrayList<Day>();
 
 	public ExamTimetable() {
+		
 	}
 
 	/**
@@ -76,41 +77,48 @@ public class ExamTimetable {
 		} else if (allTimeUsed(modules))
 			return false;
 		else {
-			for (Module m : modules) {
+			for (Iterator<Module> modList = modules.iterator(); modList.hasNext();) {
+				Module  m = modList.next();
 				Exam e = m.getExam();
-				for (Day d : availableTime) {
+				for (Iterator<Day> dayList = availableTime.iterator() ; dayList.hasNext();) {
+					Day d = dayList.next();
 					if(d.containsFreeSpace()) {
 					List<Hours> hours = d.getAllHours();
-					for (Hours h : hours) {
+					for (Iterator<Hours> hourList = hours.iterator(); hourList.hasNext(); ) {
+						Hours h = hourList.next();
 						if (!e.isBooked()) {
 							if (e.hasRelatedExam()) {
 								Exam rE = e.getRelatedExam();
 								if (rE.isBooked()) {
 									return false;
 								} else {
-									for (Room r : rooms) {
+									for (Iterator<Room> roomList = rooms.iterator(); roomList.hasNext() ;) {
+										Room r = roomList.next();
 										if (r.isAvailable(e.getDuration(), d, h)) {
 											if (r.getCapacity() <= m
 													.getStudentsEnrolled()
 													.size()) {
 												if (r.getType() == e
 														.getRoomType()) {
-													for (Student s : m
-															.getStudentsEnrolled()) {
-
+													for (Iterator<Student> studentList = m
+															.getStudentsEnrolled().iterator(); studentList.hasNext();) {
+														Student s = studentList.next();
 														if (!s.hasExam(h, d)) {
 															e.setExam(
 																	r,
 																	d,
 																	h,
 																	e.getDuration());
-															modules.remove(m);
-															rooms.remove(r);
+															modList.remove();
+															roomList.remove();
 															d.setHourBooked(h);
-															hours.remove(h);
+															hourList.remove();
 															if(!d.containsFreeSpace()) {
-															availableTime.remove(d);
+															dayList.remove();
 															}
+															scheduledModules.add(m);
+															scheduledRooms.add(r);
+															h.book();
 															if(schedule(modules,rooms)){
 															return true;
 															}

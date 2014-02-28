@@ -1,0 +1,6 @@
+package examTimetable;
+
+public interface Hours {
+	public void setExam(Exam exam);
+
+}

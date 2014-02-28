@@ -1,0 +1,8 @@
+package examTimetable;
+
+public interface Hours {
+	 public Boolean isAvailable();
+	 public void unreseve();
+	 public void book();
+
+}

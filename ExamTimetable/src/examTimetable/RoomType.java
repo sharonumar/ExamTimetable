@@ -1,5 +1,5 @@
 package examTimetable;
 
 public enum RoomType {
-	LAB, NORMAL;
+	LAB, NORMAL, COMPUTER_CLUSTER, SPORTS_HALL;
 }

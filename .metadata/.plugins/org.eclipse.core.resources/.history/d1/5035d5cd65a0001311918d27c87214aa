@@ -1,0 +1,50 @@
+package examTimetable;
+
+import java.util.List;
+
+public class Days implements Day {
+	private final Hours[] hours = new Hours[]{Hour.A,Hour.B,Hour.C,Hour.D,Hour.E,Hour.F,Hour.G};
+	
+	@Override
+	public int getFreeTime() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getFirstAvailableTime() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public List<Hours> getAvailableHours() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Hours getFirstHour() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Hours> getAllHours() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Boolean containsFreeSpace() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setHourBooked(Hours hour) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

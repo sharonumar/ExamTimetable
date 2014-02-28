@@ -1,0 +1,8 @@
+package examTimetable;
+
+public interface Hours {
+	 public Boolean isFree();
+	 public void setFree();
+	 public void notFree();
+
+}

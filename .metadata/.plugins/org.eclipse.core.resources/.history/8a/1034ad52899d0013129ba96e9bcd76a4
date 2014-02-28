@@ -1,0 +1,10 @@
+package examTimetable;
+
+public enum Hour implements Hours {
+ private final int LENGTH = 1;
+ 
+ 
+ public void setExam(Exam exam){
+	 
+ }
+}
