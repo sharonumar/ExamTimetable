@@ -6,7 +6,6 @@ private final int capacity;
 private Boolean available;
 private final RoomType type;
 private List<Day> days = new ArrayList<Day>();
-private List<Exam> exams = new ArrayList<Exam>();
 
 public Room(int capacity, RoomType type, int examPeriodLength){
 	this.capacity = capacity;
@@ -48,8 +47,7 @@ public List<Day> availableDays() {
 }
 
 public void bookRoom(Exam exam) {
-	exams.add(exam);
-	exam.book();
+	
 }
 
 public Boolean isAvailable(int length, Day day){
@@ -57,9 +55,9 @@ public Boolean isAvailable(int length, Day day){
 		Iterator<Hours> freeHours = day.getAvailableHours().iterator();
 		for(int i=0; i < length ; i++) {
 		Hours h = freeHours.next();
-		if(length == day.getFirstAvailableTime() - h.getStartTime(h))
+		if(h.isBooked() == false)
 		{
-			return true;
+			h.book();
 		}
 		}
 	}
