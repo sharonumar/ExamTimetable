@@ -7,13 +7,10 @@ private Boolean available;
 private final RoomType type;
 private List<Day> days = new ArrayList<Day>();
 
-public Room(int capacity, RoomType type, int examPeriodLength){
+public Room(int capacity, RoomType type){
 	this.capacity = capacity;
 	this.type = type;
 	available = true;
-	for(int i=0; i<examPeriodLength; i++) {
-		days.add(new Days());
-	}
 }
 
 public int getCapacity() {
@@ -33,34 +30,18 @@ public RoomType getType() {
 }
 
 public int timeAvailable(Day day){
-	return day.getFreeTime();
+	return 0;
 }
 
 public List<Day> availableDays() {
-	List<Day> availableDays = new ArrayList<Day>();
-	for(Day d: days){
-		if(d.containsFreeSpace()) {
-			availableDays.add(d);
-		}
-	}
-	return availableDays;
+	return days;
 }
 
 public void bookRoom(Exam exam) {
 	
 }
 
-public Boolean isAvailable(int length, Day day){
-	if(day.containsFreeSpace()) {
-		Iterator<Hours> freeHours = day.getAvailableHours().iterator();
-		for(int i=0; i < length ; i++) {
-		Hours h = freeHours.next();
-		if(h.isBooked() == false)
-		{
-			h.book();
-		}
-		}
-	}
+public Boolean isAvailable(int length, Day day, Hours hour){
 	return false;
 }
 

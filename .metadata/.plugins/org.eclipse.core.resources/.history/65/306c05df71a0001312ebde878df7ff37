@@ -5,7 +5,7 @@ import java.util.*;
 public class ExamTimetable {
 
 	private List<Module> scheduledModules = new ArrayList<Module>();
-	private List<Rooms> scheduledRooms = new ArrayList<Rooms>();
+	private List<Room> scheduledRooms = new ArrayList<Room>();
 	private List<Day> availableTime = new ArrayList<Day>();
 
 	public ExamTimetable() {
@@ -26,7 +26,7 @@ public class ExamTimetable {
 	 * 
 	 * @return List<Room>
 	 */
-	public List<Rooms> getScheduledRooms() {
+	public List<Room> getScheduledRooms() {
 		return scheduledRooms;
 	}
 
@@ -59,7 +59,7 @@ public class ExamTimetable {
 			proposedDuration += m.getExam().getDuration();
 		}
 		int totalDuration = 0;
-		for (Rooms r : scheduledRooms) {
+		for (Room r : scheduledRooms) {
 			List<Day> allDays = r.availableDays();
 			for (Day d : allDays) {
 				totalDuration += d.getFreeTime();
@@ -71,7 +71,7 @@ public class ExamTimetable {
 			return false;
 	}
 
-	public Boolean schedule(ArrayList<Module> modules, ArrayList<Rooms> rooms) {
+	public Boolean schedule(ArrayList<Module> modules, ArrayList<Room> rooms) {
 		if (allBooked(modules)) {
 			return true;
 		} else if (allTimeUsed(modules))
@@ -92,9 +92,9 @@ public class ExamTimetable {
 								if (rE.isBooked()) {
 									return false;
 								} else {
-									for (Iterator<Rooms> roomList = rooms.iterator(); roomList.hasNext() ;) {
-										Rooms r = roomList.next();
-										if (r.isAvailable(e.getDuration(), d)) {
+									for (Iterator<Room> roomList = rooms.iterator(); roomList.hasNext() ;) {
+										Room r = roomList.next();
+										if (r.isAvailable(e.getDuration(), d, h)) {
 											if (r.getCapacity() <= m
 													.getStudentsEnrolled()
 													.size()) {

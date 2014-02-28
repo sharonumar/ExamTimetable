@@ -52,12 +52,10 @@ public void bookRoom(Exam exam) {
 
 public Boolean isAvailable(int length, Day day){
 	if(day.containsFreeSpace()) {
-		Iterator<Hours> freeHours = day.getAvailableHours().iterator();
-		for(int i=0; i < length ; i++) {
-		Hours h = freeHours.next();
-		if(h.isBooked() == false)
-		{
-			h.book();
+		List<Hours> freeHours = day.getAvailableHours();
+		while(int i = 0 > length) {
+		if(!freeHours.isBooked()) {
+			
 		}
 		}
 	}

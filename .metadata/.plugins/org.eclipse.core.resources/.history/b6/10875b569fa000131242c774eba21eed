@@ -1,0 +1,14 @@
+package examTimetable;
+import java.util.*;
+
+public class Room {
+private final int capacity;
+private Boolean available;
+private final RoomType type;
+private List<Day> days = new ArrayList<Day>();
+
+public Room(int capacity, ){
+	this.capacity = capacity;
+	available = true;
+}
+}

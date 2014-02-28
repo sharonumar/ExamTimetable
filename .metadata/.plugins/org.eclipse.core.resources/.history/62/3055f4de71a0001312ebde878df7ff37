@@ -5,7 +5,7 @@ public interface Exam {
 	public int getDuration();
 	public Boolean isBooked();
 	public RoomType getRoomType();
-	public void setExam(Rooms room, Day day, Hours hour, int duration);
+	public void setExam(Room room, Day day, Hours hour, int duration);
 	public void removeBooking();
 	public Boolean hasRelatedExam();
 	public Exam getRelatedExam();

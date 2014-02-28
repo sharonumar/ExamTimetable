@@ -94,7 +94,7 @@ public class ExamTimetable {
 								} else {
 									for (Iterator<Rooms> roomList = rooms.iterator(); roomList.hasNext() ;) {
 										Rooms r = roomList.next();
-										if (r.isAvailable(e.getDuration(), d)) {
+										if (r.isAvailable(e.getDuration(), d, h)) {
 											if (r.getCapacity() <= m
 													.getStudentsEnrolled()
 													.size()) {
