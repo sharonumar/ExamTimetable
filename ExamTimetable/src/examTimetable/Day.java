@@ -4,7 +4,7 @@ import java.util.*;
 public interface Day {
 public int getFreeTime();
 public int getFirstAvailableTime();
-public List<Hours> getAvailableHours();
+public Iterator<Hours> getAvailableHours();
 public Hours getFirstHour();
 public List<Hours> getAllHours();
 public Boolean containsFreeSpace();

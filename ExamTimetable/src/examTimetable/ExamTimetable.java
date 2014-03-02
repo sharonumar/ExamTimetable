@@ -3,13 +3,16 @@ package examTimetable;
 import java.util.*;
 
 public class ExamTimetable {
-
+	private List<Module> modules = new ArrayList<Module>();
+	private List<Rooms> rooms = new ArrayList<Rooms>();
 	private List<Module> scheduledModules = new ArrayList<Module>();
-	private List<Rooms> scheduledRooms = new ArrayList<Rooms>();
-	private List<Day> availableTime = new ArrayList<Day>();
+	private int EXAM_LENGTH;
 
-	public ExamTimetable() {
-		
+	public ExamTimetable(int EXAM_LENGTH, List<Module> modules,
+			List<Rooms> rooms) {
+		this.EXAM_LENGTH = EXAM_LENGTH;
+		this.modules = modules;
+		this.rooms = rooms;
 	}
 
 	/**
@@ -19,15 +22,6 @@ public class ExamTimetable {
 	 */
 	public List<Module> getScheduledModules() {
 		return scheduledModules;
-	}
-
-	/**
-	 * get all rooms which have been booked.
-	 * 
-	 * @return List<Room>
-	 */
-	public List<Rooms> getScheduledRooms() {
-		return scheduledRooms;
 	}
 
 	/**
@@ -47,87 +41,56 @@ public class ExamTimetable {
 		return false;
 	}
 
-	/**
-	 * 
-	 * @param List
-	 *            <Module> modules
-	 * @return Boolean
-	 */
-	private Boolean allTimeUsed(List<Module> modules) {
-		int proposedDuration = 0;
-		for (Module m : modules) {
-			proposedDuration += m.getExam().getDuration();
-		}
-		int totalDuration = 0;
-		for (Rooms r : scheduledRooms) {
-			List<Day> allDays = r.availableDays();
-			for (Day d : allDays) {
-				totalDuration += d.getFreeTime();
-			}
-		}
-		if (totalDuration == proposedDuration)
+	public Boolean schedule() {
+		if (allBooked(modules))
 			return true;
-		else
-			return false;
-	}
-
-	public Boolean schedule(ArrayList<Module> modules, ArrayList<Rooms> rooms) {
-		if (allBooked(modules)) {
-			return true;
-		} else if (allTimeUsed(modules))
-			return false;
 		else {
-			for (Iterator<Module> modList = modules.iterator(); modList.hasNext();) {
-				Module  m = modList.next();
+			for (Iterator<Module> modList = modules.iterator(); modList
+					.hasNext();) {
+				Module m = modList.next();
 				Exam e = m.getExam();
-				for (Iterator<Day> dayList = availableTime.iterator() ; dayList.hasNext();) {
-					Day d = dayList.next();
-					if(d.containsFreeSpace()) {
-					List<Hours> hours = d.getAllHours();
-					for (Iterator<Hours> hourList = hours.iterator(); hourList.hasNext(); ) {
-						Hours h = hourList.next();
-						if (!e.isBooked()) {
-							if (e.hasRelatedExam()) {
-								Exam rE = e.getRelatedExam();
-								if (rE.isBooked()) {
-									return false;
-								} else {
-									for (Iterator<Rooms> roomList = rooms.iterator(); roomList.hasNext() ;) {
-										Rooms r = roomList.next();
-										if (r.isAvailable(e.getDuration(), d)) {
-											if (r.getCapacity() <= m
-													.getStudentsEnrolled()
-													.size()) {
-												if (r.getType() == e
-														.getRoomType()) {
-													for (Iterator<Student> studentList = m
-															.getStudentsEnrolled().iterator(); studentList.hasNext();) {
-														Student s = studentList.next();
-														if (!s.hasExam(h, d)) {
-															e.setExam(
-																	r,
-																	d,
-																	h,
-																	e.getDuration());
-															modList.remove();
-															roomList.remove();
-															d.setHourBooked(h);
-															hourList.remove();
-															if(!d.containsFreeSpace()) {
-															dayList.remove();
-															}
-															scheduledModules.add(m);
-															scheduledRooms.add(r);
-															h.book();
-															if(schedule(modules,rooms)){
+				for (Iterator<Rooms> roomList = rooms.iterator(); roomList
+						.hasNext();) {
+					Rooms r = roomList.next();
+					for (Iterator<Day> dayList = r.availableDays(); roomList
+							.hasNext();) {
+						Day d = dayList.next();
+						if (r.isAvailable(e.getDuration(), d)) {
+							if (!e.isBooked()) {
+								if (e.hasRelatedExam()) {
+									Exam rE = e.getRelatedExam();
+									if (rE.isBooked()) {
+										return false;
+									} else {
+										if (r.getCapacity() <= m
+												.getStudentsEnrolled().size()) {
+											if (r.getType() == e.getRoomType()) {
+												int studentSize = 0;
+												for (Iterator<Student> studentList = m
+														.getStudentsEnrolled()
+														.iterator(); studentList
+														.hasNext();) {
+													Student s = studentList
+															.next();
+													if (!s.hasExam(
+															d.getFirstHour(), d)) {
+														studentSize++;
+													}
+													if (studentSize == m
+															.getStudentsEnrolled()
+															.size()) {
+														e.setExam(r,
+																e.getDuration());
+														r.bookRoom(e, d);
+														modList.remove();
+														scheduledModules.add(m);
+														if (schedule()) {
 															return true;
-															}
 														}
 													}
 												}
 											}
 										}
-									}
 									}
 								}
 							}
@@ -135,8 +98,7 @@ public class ExamTimetable {
 					}
 				}
 			}
-			return false;
 		}
+		return false;
 	}
-
 }

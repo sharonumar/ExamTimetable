@@ -27,13 +27,14 @@ public class Days implements Day {
 	}
 
 	@Override
-	public List<Hours> getAvailableHours() {
-		List <Hours> availableHours = new ArrayList<Hours>();
+	public Iterator<Hours> getAvailableHours() {
+		List <Hours> free = new ArrayList<Hours>();
 		for(Hours h: hours) {
 			if(h.isBooked() == false) {
-				availableHours.add(h);
+				free.add(h);
 			}
 		}
+		Iterator<Hours> availableHours = free.iterator();
 		return availableHours;
 	}
 

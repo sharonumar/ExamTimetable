@@ -137,9 +137,9 @@
       "micro": 0,
       "qualifier": ""
     },
-    "jarFileFingerprint": "8dd971cde724dfec556b5701ff3c9b8bbd262677",
-    "jarFileModificationDate": "2013-10-10T19:38:59+01:00",
-    "location": "/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/lib/ext/apple_provider.jar",
+    "jarFileFingerprint": "f3f9aabfd3c75b0c5267419dcbaa726d1ed46bb7",
+    "jarFileModificationDate": "2014-03-01T20:05:37Z",
+    "location": "/System/Library/Java/Extensions/QTJava.zip",
     "javaRuntime": true
   },
   {
@@ -150,9 +150,9 @@
       "micro": 0,
       "qualifier": ""
     },
-    "jarFileFingerprint": "3992b52876ea5c35473e170f78781d8be91c6dd2",
-    "jarFileModificationDate": "2013-11-23T23:15:25Z",
-    "location": "/System/Library/Java/Extensions/QTJava.zip",
+    "jarFileFingerprint": "8dd971cde724dfec556b5701ff3c9b8bbd262677",
+    "jarFileModificationDate": "2013-10-10T19:38:59+01:00",
+    "location": "/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/lib/ext/apple_provider.jar",
     "javaRuntime": true
   },
   {

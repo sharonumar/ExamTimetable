@@ -37,24 +37,33 @@ public int timeAvailable(Day day){
 	return day.getFreeTime();
 }
 
-public List<Day> availableDays() {
+public Iterator<Day> availableDays() {
 	List<Day> availableDays = new ArrayList<Day>();
 	for(Day d: days){
 		if(d.containsFreeSpace()) {
 			availableDays.add(d);
 		}
 	}
-	return availableDays;
+	Iterator<Day> freeDays = availableDays.iterator(); 
+	return freeDays;
 }
 
-public void bookRoom(Exam exam) {
+public void bookRoom(Exam exam, Day day) {
+	int examLength = exam.getDuration();
+	if(this.isAvailable(examLength, day)){
+		Iterator<Hours> freeHours = day.getAvailableHours();
+		for(int i=0; i< examLength ; i++) {
+			Hours h = freeHours.next();
+			h.book();
+		}
 	exams.add(exam);
 	exam.book();
+	}
 }
 
 public Boolean isAvailable(int length, Day day){
 	if(day.containsFreeSpace()) {
-		Iterator<Hours> freeHours = day.getAvailableHours().iterator();
+		Iterator<Hours> freeHours = day.getAvailableHours();
 		for(int i=0; i < length ; i++) {
 		Hours h = freeHours.next();
 		if(length == day.getFirstAvailableTime() - h.getStartTime(h))
