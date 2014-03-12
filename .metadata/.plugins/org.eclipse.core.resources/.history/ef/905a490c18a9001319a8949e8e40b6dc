@@ -1,0 +1,20 @@
+package examTimetable;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class RoomTest {
+	Rooms room = new Room(100, RoomType.COMPUTER_CLUSTER,2, "A100" );
+	Exam exama = new Exams();
+
+	@Test
+	public void test() {
+		for(Day d: room.availableDays()) {
+		if(room.isAvailable(2, d) ==false)
+		fail("Not yet implemented");
+		}
+		room.bookRoom(exam, day);
+	}
+
+}

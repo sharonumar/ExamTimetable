@@ -1,0 +1,13 @@
+{
+  "/Users/Paul/Documents/MSc/CSC8005/ExamTimetable/New/NewExam/src": {
+    "location": "/Users/Paul/Documents/MSc/CSC8005/ExamTimetable/New/NewExam/src",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027/Users/Paul/Documents/MSc/CSC8005/ExamTimetable/New/NewExam/src\u0027. Skipped."
+  },
+  "/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/classes.jar": {
+    "coordinate": "jre:jre:zip:call:1.0.0",
+    "location": "/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/classes.jar",
+    "status": "RESOLVED",
+    "error": "No class path info available for \u0027/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/classes.jar\u0027. Skipped."
+  }
+}

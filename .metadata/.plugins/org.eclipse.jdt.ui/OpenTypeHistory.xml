@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <typeInfoHistroy>
-<typeInfo handle="=ExamTimetable/src&lt;examTimetable{Day.java[Day" modifiers="513" timestamp="1393260617000"/>
+<typeInfo handle="=ExamTimetable/src&lt;examTimetable{Day.java[Day" modifiers="513" timestamp="1394472264000"/>
+<typeInfo handle="=ExamTimetable/src&lt;examTimetable{Module.java[Module" modifiers="513" timestamp="1394475637000"/>
+<typeInfo handle="=ExamTimetable/src&lt;examTimetable{Exam.java[Exam" modifiers="513" timestamp="1394471548000"/>
+<typeInfo handle="=ExamTimetable/src&lt;examTimetable{Student.java[Student" modifiers="513" timestamp="1394472835000"/>
 </typeInfoHistroy>

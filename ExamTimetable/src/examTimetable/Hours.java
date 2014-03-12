@@ -4,6 +4,8 @@ public interface Hours {
 	 public Boolean isBooked();
 	 public void unreseve();
 	 public void book();
-	 public int getStartTime(Hours hour);
+	 public int getTime(Hours hour);
+	 public void setExam(Exam exam);
+	 public Exam getExam();
 
 }

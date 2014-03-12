@@ -1,0 +1,27 @@
+package examTimetable;
+
+import java.util.*;
+
+public class Modules implements Module {
+	private String moduleID;
+	private List<Student> enrolledStudents = new ArrayList<Student>();
+	private Exam exam;
+
+	@Override
+	public ArrayList<Student> getStudentsEnrolled() {
+		return enrolledStudents;
+	}
+
+	@Override
+	public void bookExam(Rooms room) {
+		this.exam = exam;
+		
+
+	}
+
+	@Override
+	public Exam getExam() {
+		return exam;
+	}
+
+}

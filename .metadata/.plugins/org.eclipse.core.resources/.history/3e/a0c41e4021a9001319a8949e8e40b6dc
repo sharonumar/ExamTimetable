@@ -1,0 +1,87 @@
+package examTimetable;
+import java.util.*;
+
+public class Room implements Rooms {
+private final int capacity;
+private Boolean available;
+private final RoomType type;
+private List<Day> days = new ArrayList<Day>();
+private List<Exam> exams = new ArrayList<Exam>();
+private String rNumber;
+
+public Room(int capacity, RoomType type, int examPeriodLength, String rNumber){
+	this.capacity = capacity;
+	this.type = type;
+	available = true;
+	this.rNumber = rNumber;
+	for(int i=0; i<examPeriodLength; i++) {
+		days.add(new Days());
+	}
+}
+
+public int getCapacity() {
+	return capacity;
+}
+
+public Boolean isAvailable(){
+	return available;
+}
+
+public void book(){
+	available = false;
+}
+
+public RoomType getType() {
+	return type;
+}
+
+public int timeAvailable(Day day){
+	return day.getFreeTime();
+}
+
+public List<Day> availableDays() {
+	List<Day> availableDays = new ArrayList<Day>();
+	for(Day d: days){
+		if(d.containsFreeSpace()) {
+			availableDays.add(d);
+		}
+	}
+	return availableDays;
+}
+
+public void bookRoom(Exam exam, Day day) {
+	int examLength = exam.getDuration();
+	if(this.isAvailable(examLength, day)){
+		Iterator<Hours> freeHours = day.getAvailableHours();
+		for(int i=0; i< examLength ; i++) {
+			Hours h = freeHours.next();
+			h.book();
+			h.setExam(exam);
+		}
+	exams.add(exam);
+	exam.book();
+	exam.setDay(day);
+	}
+}
+
+public Boolean isAvailable(int length, Day day){
+	if(day.containsFreeSpace()) {
+		for(Iterator<Hours> startHours = day.getAvailableHours(); startHours.hasNext() ; ) {
+		Hours startTime = startHours.next();
+		for(Iterator<Hours> endHours = day.getAvailableHours(); endHours.hasNext() ; ) {
+		Hours endTime = endHours.next();
+		if(length == startTime.getTime(startTime) - endTime.getTime(endTime))
+		{
+			return true;
+		}
+		}
+		}
+	}
+	return false;
+}
+
+public String toString() {
+	return "" + rNumber + " " + type;
+}
+
+}

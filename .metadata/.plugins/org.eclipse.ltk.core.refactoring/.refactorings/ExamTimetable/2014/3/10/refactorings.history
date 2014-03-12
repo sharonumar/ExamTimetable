@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename method &apos;examTimetable.Hours.getStartTime(...)&apos; to &apos;getTime&apos;&#x0A;- Original project: &apos;ExamTimetable&apos;&#x0A;- Original element: &apos;examTimetable.Hours.getStartTime(...)&apos;&#x0A;- Renamed element: &apos;examTimetable.Hours.getTime(...)&apos;&#x0A;- Update references to refactored element" delegate="false" deprecate="false" description="Rename method &apos;getStartTime&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.method" input="/src&lt;examTimetable{Hours.java[Hours~getStartTime~QHours;" name="getTime" references="true" stamp="1393833134271" version="1.0"/>
+</session>

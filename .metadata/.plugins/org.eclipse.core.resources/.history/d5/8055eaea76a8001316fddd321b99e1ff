@@ -1,0 +1,55 @@
+package examTimetable;
+
+public class Exams implements Exam {
+	private Module module;
+	private int duration;
+	private Boolean booked;
+	private RoomType type;
+	private Room room;
+	
+
+	@Override
+	public int getDuration() {
+		return duration;
+	}
+
+	@Override
+	public Boolean isBooked() {
+		return booked;
+	}
+
+	@Override
+	public void book() {
+		booked = true;
+	}
+
+	@Override
+	public RoomType getRoomType() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setExam(Rooms room, int duration) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void removeBooking() {
+		booked = false;
+	}
+
+	@Override
+	public Boolean hasRelatedExam() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Exam getRelatedExam() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,6 +1,0 @@
-package examTimetable;
-
-public interface Day {
-public int getFreeTime();
-public int getFirstAvailableTime();
-}

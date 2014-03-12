@@ -1,0 +1,15 @@
+package newExam;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class HourTest {
+
+	@Test
+	public void test() {
+		Hour h = new Hour(9);
+		System.out.println(h);
+	}
+
+}

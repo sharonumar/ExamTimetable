@@ -1,0 +1,46 @@
+package newExam;
+import java.util.*;
+
+public class Scheduler {
+	private List<Module> allModules = new ArrayList<Module>();
+	private List<Day> allDays = new ArrayList<Day>();
+	
+	public Scheduler(List<Module> allModules, List<Day> allDays) {
+		this.allModules = allModules;
+		this.allDays = allDays;
+	}
+	
+	//Backtrak Algorithm.
+	public Boolean scheduleExam(Exam exam) {
+		if(exam.getScheduled() == true) 
+			return true;
+		book(exam);
+		for(Module module: allModules) {
+			Exam nextExam = module.getExam();
+			if(nextExam.getScheduled()==false) {
+				if(scheduleExam(nextExam)) {
+					return true;
+				}
+			}
+		}
+		exam.setScheduledFalse();
+		return false;
+	}
+	
+	public void book(Exam exam) {
+		int startTime;
+		while(exam.getScheduled() == false) {
+			for(Day d : allDays) {
+				List<Hour> hours = d.getHours();
+				for(Hour h: hours) {
+					if(h.getAvailable() == true) 
+						startTime = h.getHour();
+					
+				}
+			}
+		}
+		
+	}
+
+
+}

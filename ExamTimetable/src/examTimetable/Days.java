@@ -5,6 +5,10 @@ import java.util.*;
 public class Days implements Day {
 	private final Hours[] hours = new Hours[]{Hour.A,Hour.B,Hour.C,Hour.D,Hour.E,Hour.F,Hour.G};
 	
+	public Days() {
+		
+	}
+	
 	@Override
 	public int getFreeTime() {
 		int freeTime = 0;
@@ -15,27 +19,30 @@ public class Days implements Day {
 		}
 		return freeTime;
 	}
+	
+	public Boolean hourCheck(Hours hour) {
+		return (hour.isBooked());
+	}
 
 	@Override
 	public int getFirstAvailableTime() {
 		for(Hours h: hours) {
 			if(h.isBooked() == false) {
-				h.getStartTime(h);
+				h.getTime(h);
 			}	 
 		}
 		return -1;
 	}
 
 	@Override
-	public Iterator<Hours> getAvailableHours() {
+	public List<Hours> getAvailableHours() {
 		List <Hours> free = new ArrayList<Hours>();
 		for(Hours h: hours) {
 			if(h.isBooked() == false) {
 				free.add(h);
 			}
 		}
-		Iterator<Hours> availableHours = free.iterator();
-		return availableHours;
+		return free;
 	}
 
 	@Override
@@ -57,7 +64,7 @@ public class Days implements Day {
 	@Override
 	public Boolean containsFreeSpace() {
 		for(Hours h: hours) {
-			if(h.isBooked()) {
+			if(h.isBooked() == false) {
 				return true;
 			}
 		}
@@ -69,5 +76,4 @@ public class Days implements Day {
 	public void setHourBooked(Hours hour) {
 		hour.book();
 	}
-
 }

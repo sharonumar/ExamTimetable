@@ -3,14 +3,12 @@ package examTimetable;
 import java.util.*;
 
 public class ExamTimetable {
-	private List<Module> modules = new ArrayList<Module>();
-	private List<Rooms> rooms = new ArrayList<Rooms>();
-	private List<Module> scheduledModules = new ArrayList<Module>();
-	private int EXAM_LENGTH;
+	private List<Module> modules = new LinkedList<Module>();
+	private List<Rooms> rooms = new LinkedList<Rooms>();
+	//private List<Module> scheduledModules = new LinkedList<Module>();
 
-	public ExamTimetable(int EXAM_LENGTH, List<Module> modules,
+	public ExamTimetable (List<Module> modules,
 			List<Rooms> rooms) {
-		this.EXAM_LENGTH = EXAM_LENGTH;
 		this.modules = modules;
 		this.rooms = rooms;
 	}
@@ -19,10 +17,10 @@ public class ExamTimetable {
 	 * get all the modules which have been scheduled.
 	 * 
 	 * @return List<Module>
-	 */
+	 *//*
 	public List<Module> getScheduledModules() {
 		return scheduledModules;
-	}
+	}*/
 
 	/**
 	 * check to see if all the Exams have been booked.
@@ -31,74 +29,58 @@ public class ExamTimetable {
 	 *            <Module> modules
 	 * @return Boolean
 	 */
-	private Boolean allBooked(List<Module> modules) {
-		for (Module m : modules)
+	private static Boolean allBooked(List<Module> modules) {
+		int modCount = 0;
+		for (Module m: modules) {
 			if (m.getExam().isBooked()) {
-				if (allBooked(modules)) {
+				modCount++;
+				if (modCount == modules.size()) {
 					return true;
 				}
+			
 			}
+		}
 		return false;
-	}
+	} 
 
 	public Boolean schedule() {
-		if (allBooked(modules))
-			return true;
-		else {
-			for (Iterator<Module> modList = modules.iterator(); modList
-					.hasNext();) {
-				Module m = modList.next();
+		while (ExamTimetable.allBooked(modules) == false){
+			for (Iterator<Module> modIT = modules.iterator() ; modIT.hasNext() ;) {
+				Module m = modIT.next();
 				Exam e = m.getExam();
-				for (Iterator<Rooms> roomList = rooms.iterator(); roomList
-						.hasNext();) {
-					Rooms r = roomList.next();
-					for (Iterator<Day> dayList = r.availableDays(); roomList
-							.hasNext();) {
-						Day d = dayList.next();
-						if (r.isAvailable(e.getDuration(), d)) {
-							if (!e.isBooked()) {
-								if (e.hasRelatedExam()) {
-									Exam rE = e.getRelatedExam();
-									if (rE.isBooked()) {
-										return false;
-									} else {
-										if (r.getCapacity() <= m
-												.getStudentsEnrolled().size()) {
-											if (r.getType() == e.getRoomType()) {
-												int studentSize = 0;
-												for (Iterator<Student> studentList = m
-														.getStudentsEnrolled()
-														.iterator(); studentList
-														.hasNext();) {
-													Student s = studentList
-															.next();
-													if (!s.hasExam(
-															d.getFirstHour(), d)) {
-														studentSize++;
-													}
-													if (studentSize == m
-															.getStudentsEnrolled()
-															.size()) {
-														e.setExam(r,
-																e.getDuration());
-														r.bookRoom(e, d);
-														modList.remove();
-														scheduledModules.add(m);
-														if (schedule()) {
-															return true;
-														}
-													}
-												}
+				//Insert a check for the exam having a related exam
+				//If scheduled, store the time as a variable and check
+				//the room below is free that time.  If not, go next room.
+				//if no room is available return fail.
+					for (Rooms room: rooms) {
+						List<Day> dayList = room.availableDays();
+					for (Day d : dayList) {
+						if (room.isAvailable(e.getDuration(), d)) {
+							if (room.getCapacity() >= m.numberofstudents()) {
+								if (room.getType() == e.getRoomType()) {
+									//Insert checks for the student if they're
+									//already sitting an exam in this time.
+								e.setExam(room);
+								room.bookRoom(e, d);
+								if (schedule()) {
+									return true;
+								}
 											}
 										}
 									}
 								}
-							}
-						}
+					break;
 					}
-				}
 			}
 		}
-		return false;
+		return true;
+	}
+	
+	public String toString() {
+		String m = "";
+		for(Module mod: modules) {
+			m += mod + "\n";
+		}
+		return m;
 	}
 }

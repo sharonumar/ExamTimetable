@@ -1,0 +1,30 @@
+package examTimetable;
+
+import java.util.*;
+
+public class Students implements Student {
+	private String forename;
+	private String surname;
+	private String studentID;
+	private List<Module> moduleStudy = new ArrayList<Module>();
+	
+	public Students(String forename, String surname) {
+		this.forename = forename;
+		this.surname = surname;
+	}
+
+	@Override
+	public List<Module> enrolledModules() {
+		return moduleStudy;
+	}
+	
+	public void addModule(Module module) {
+		moduleStudy.add(module);
+	}
+
+	@Override
+	public Boolean hasExam(Hours hour, Day d) {
+		return (d.hourCheck(hour));
+	}
+
+}

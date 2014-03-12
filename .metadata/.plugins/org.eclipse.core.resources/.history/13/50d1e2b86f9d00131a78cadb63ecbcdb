@@ -1,9 +1,0 @@
-package examTimetable;
-import java.util.*;
-
-public interface Day {
-public int getFreeTime();
-public int getFirstAvailableTime();
-public List<Hours> getAvailableHours();
-public Hour getFirstHour();
-}

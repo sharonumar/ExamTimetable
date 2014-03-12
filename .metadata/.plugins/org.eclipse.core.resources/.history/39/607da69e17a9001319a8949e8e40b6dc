@@ -1,0 +1,17 @@
+package examTimetable;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class RoomTest {
+	Day day = new Days();
+	Rooms room = new Room();
+
+	@Test
+	public void test() {
+		
+		fail("Not yet implemented");
+	}
+
+}

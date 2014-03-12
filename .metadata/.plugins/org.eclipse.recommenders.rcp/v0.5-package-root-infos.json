@@ -13,6 +13,19 @@
     "javaRuntime": true
   },
   {
+    "symbolicName": "junit",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "4e031bb61df09069aeb2bffb4019e7a5034a4ee0",
+    "jarFileModificationDate": "2013-05-17T17:05:12+01:00",
+    "location": "/Applications/eclipse/plugins/org.junit_4.11.0.v201303080030/junit.jar",
+    "javaRuntime": false
+  },
+  {
     "symbolicName": "jre",
     "version": {
       "major": 1,
@@ -89,6 +102,19 @@
     "jarFileModificationDate": "2013-08-08T03:16:58+01:00",
     "location": "/System/Library/Java/Extensions/AppleScriptEngine.jar",
     "javaRuntime": true
+  },
+  {
+    "symbolicName": "org.hamcrest.core",
+    "version": {
+      "major": 1,
+      "minor": 3,
+      "micro": 0,
+      "qualifier": "v201303031735"
+    },
+    "jarFileFingerprint": "5ed9fe32ab1d2b18bec7cac0a044090100f327ba",
+    "jarFileModificationDate": "2013-06-14T04:22:19+01:00",
+    "location": "/Applications/eclipse/plugins/org.hamcrest.core_1.3.0.v201303031735.jar",
+    "javaRuntime": false
   },
   {
     "symbolicName": "jre",
@@ -189,19 +215,6 @@
       "micro": 0,
       "qualifier": ""
     },
-    "jarFileFingerprint": "e7533ef29283d456ddcc700ad2ccdd0c3452e464",
-    "jarFileModificationDate": "2013-08-08T03:15:41+01:00",
-    "location": "/System/Library/Java/Extensions/j3dutils.jar",
-    "javaRuntime": true
-  },
-  {
-    "symbolicName": "jre",
-    "version": {
-      "major": 1,
-      "minor": 0,
-      "micro": 0,
-      "qualifier": ""
-    },
     "jarFileFingerprint": "17cb77e6b97b7d53eac15eb338d289d6ad70d64a",
     "jarFileModificationDate": "2013-10-10T19:36:08+01:00",
     "location": "/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/classes.jar",
@@ -215,9 +228,9 @@
       "micro": 0,
       "qualifier": ""
     },
-    "jarFileFingerprint": "63fbdd9c7e93573cc15ee487950217886be2aef6",
-    "jarFileModificationDate": "2013-11-15T16:18:26Z",
-    "location": "/System/Library/Java/Extensions/dns_sd.jar",
+    "jarFileFingerprint": "e7533ef29283d456ddcc700ad2ccdd0c3452e464",
+    "jarFileModificationDate": "2013-08-08T03:15:41+01:00",
+    "location": "/System/Library/Java/Extensions/j3dutils.jar",
     "javaRuntime": true
   },
   {
@@ -228,22 +241,9 @@
       "micro": 0,
       "qualifier": ""
     },
-    "jarFileFingerprint": "ea45c5d84b402679dd74825b0806a269a3cd4aee",
-    "jarFileModificationDate": "2013-10-10T19:32:12+01:00",
-    "location": "/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/charsets.jar",
-    "javaRuntime": true
-  },
-  {
-    "symbolicName": "jre",
-    "version": {
-      "major": 1,
-      "minor": 0,
-      "micro": 0,
-      "qualifier": ""
-    },
-    "jarFileFingerprint": "70e3f9e76e3d5884415516c0cee0855295bcb571",
-    "jarFileModificationDate": "2013-10-10T19:22:21+01:00",
-    "location": "/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/jce.jar",
+    "jarFileFingerprint": "a84551888636d4e693dc9b483ad69a6a78ad9d74",
+    "jarFileModificationDate": "2013-11-15T16:18:23Z",
+    "location": "/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/lib/ext/dnsns.jar",
     "javaRuntime": true
   },
   {
@@ -267,9 +267,35 @@
       "micro": 0,
       "qualifier": ""
     },
-    "jarFileFingerprint": "a84551888636d4e693dc9b483ad69a6a78ad9d74",
-    "jarFileModificationDate": "2013-11-15T16:18:23Z",
-    "location": "/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/lib/ext/dnsns.jar",
+    "jarFileFingerprint": "70e3f9e76e3d5884415516c0cee0855295bcb571",
+    "jarFileModificationDate": "2013-10-10T19:22:21+01:00",
+    "location": "/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/jce.jar",
+    "javaRuntime": true
+  },
+  {
+    "symbolicName": "jre",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "micro": 0,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "ea45c5d84b402679dd74825b0806a269a3cd4aee",
+    "jarFileModificationDate": "2013-10-10T19:32:12+01:00",
+    "location": "/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/charsets.jar",
+    "javaRuntime": true
+  },
+  {
+    "symbolicName": "jre",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "micro": 0,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "63fbdd9c7e93573cc15ee487950217886be2aef6",
+    "jarFileModificationDate": "2013-11-15T16:18:26Z",
+    "location": "/System/Library/Java/Extensions/dns_sd.jar",
     "javaRuntime": true
   }
 ]

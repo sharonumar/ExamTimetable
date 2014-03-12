@@ -1,0 +1,14 @@
+package newExam;
+import java.util.*;
+public class ExamTimetable {
+	private int examDuration;
+	private Date startDate;
+	
+	public ExamTimetable(int examDuration, Date startDate) {
+		this.examDuration = examDuration;
+		this.startDate = startDate;
+	}
+	
+	
+
+}

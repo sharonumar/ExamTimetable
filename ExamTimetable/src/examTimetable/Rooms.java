@@ -9,5 +9,5 @@ public interface Rooms {
 	public void book();
 	public RoomType getType();
 	public int timeAvailable(Day day);
-	public Iterator<Day> availableDays();
+	public List<Day> availableDays();
 }

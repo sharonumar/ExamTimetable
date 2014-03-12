@@ -1,0 +1,20 @@
+package examTimetable;
+
+import java.util.List;
+
+public class Students implements Student {
+	private List<Module> moduleStudy = new ArrayList<Module>();
+
+	@Override
+	public List<Module> enrolledModules() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Boolean hasExam(Hours hour, Day d) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

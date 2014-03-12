@@ -1,0 +1,19 @@
+package newExam;
+import java.util.*;
+
+public class Room {
+	private String roomNumber;
+	private RoomType type;
+	private int capacity;
+	//each room has it's own array of days
+	//to act as a timetable for each room.
+	private List<Day> timetable = new ArrayList<Day>();
+	
+	public Room(String roomNumber, RoomType type, int capacity) {
+		this.roomNumber = roomNumber;
+		this.type = type;
+		this.capacity = capacity;
+		
+	}
+
+}

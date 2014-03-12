@@ -1,0 +1,10 @@
+package examTimetable;
+
+public interface Hours {
+	 public Boolean isBooked();
+	 public void unreseve();
+	 public void book();
+	 public int getTime(Hours hour);
+	 public void setExam(Exam exam);
+
+}

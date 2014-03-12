@@ -1,0 +1,97 @@
+package examTimetable;
+
+import java.util.*;
+
+public class ExamTimetable {
+	private List<Module> modules = new LinkedList<Module>();
+	private List<Rooms> rooms = new LinkedList<Rooms>();
+	private List<Module> scheduledModules = new LinkedList<Module>();
+
+	public ExamTimetable (List<Module> modules,
+			List<Rooms> rooms) {
+		this.modules = modules;
+		this.rooms = rooms;
+	}
+
+	/**
+	 * get all the modules which have been scheduled.
+	 * 
+	 * @return List<Module>
+	 */
+	public List<Module> getScheduledModules() {
+		return scheduledModules;
+	}
+
+	/**
+	 * check to see if all the Exams have been booked.
+	 * 
+	 * @param List
+	 *            <Module> modules
+	 * @return Boolean
+	 */
+	private Boolean allBooked(List<Module> modules) {
+		for (Module m: modules) {
+			if (m.getExam().isBooked()) {
+				if (allBooked(modules)) {
+					return true;
+				}
+			
+			}
+		}
+		return false;
+	}
+
+	public Boolean schedule() {
+		if (allBooked(modules))
+			return true;
+		else {
+			Iterator<Module> modIT = modules.iterator();
+			for ( ; modIT.hasNext() ;) {
+				Module m = modIT.next();
+				Exam e = m.getExam();
+				/*if (!e.isBooked()) {
+					if (e.hasRelatedExam()) {
+						Exam rE = e.getRelatedExam();
+						if (rE.isBooked()) {
+							return false;
+						}
+					}
+				else { */
+					for (Rooms room: rooms) {
+						List<Day> dayList = room.availableDays();
+					for (Day d : dayList) {
+						if (room.isAvailable(e.getDuration(), d)) {
+							if (room.getCapacity() >= m.numberofstudents()) {
+								if (room.getType() == e.getRoomType()) {
+									/*
+									int studentSize = 0;
+									for (Iterator<Student> studentList = m.getStudentsEnrolled().iterator(); studentList.hasNext();) {
+										Student s = studentList.next();
+										if (!s.hasExam(d.getFirstHour(), d)) {
+											studentSize++;
+													}
+											if (studentSize == m.getStudentsEnrolled().size()) {
+											*/
+								e.setExam(room);
+								room.bookRoom(e, d);
+								if (schedule()) {
+								return true;
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+		return false;
+	}
+	
+	public String toString() {
+		String m = "";
+		for(Module mod: scheduledModules) {
+			m += mod + "/n";
+		}
+		return m;
+	}
+}

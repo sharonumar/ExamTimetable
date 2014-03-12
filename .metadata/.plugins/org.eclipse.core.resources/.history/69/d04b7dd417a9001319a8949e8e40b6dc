@@ -1,0 +1,16 @@
+package examTimetable;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class RoomTest {
+	Rooms room = new Room(100, RoomType.COMPUTER_CLUSTER,2, "A100" );
+
+	@Test
+	public void test() {
+		
+		fail("Not yet implemented");
+	}
+
+}

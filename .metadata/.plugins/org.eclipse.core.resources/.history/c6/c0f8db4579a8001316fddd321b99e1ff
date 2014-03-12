@@ -1,0 +1,10 @@
+package examTimetable;
+
+public class Test {
+	
+	public static void main(String[] args) {
+		Student a = new Student("Paul", "Barber");
+		
+	}
+
+}

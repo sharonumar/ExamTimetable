@@ -1,0 +1,17 @@
+package newExam;
+import java.util.*;
+
+public class Room {
+	private String roomNumber;
+	private RoomType type;
+	private int capacity;
+	//
+	private List<Day> days = new ArrayList<Day>();
+	
+	public Room(String roomNumber, RoomType type, int capacity) {
+		this.roomNumber = roomNumber;
+		this.type = type;
+		this.capacity = capacity;
+	}
+
+}

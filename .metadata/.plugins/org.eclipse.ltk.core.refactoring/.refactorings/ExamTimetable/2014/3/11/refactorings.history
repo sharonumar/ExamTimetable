@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;modList&apos; in &apos;examTimetable.ExamTimetable.schedule()&apos; to &apos;modIT&apos;&#x0A;- Original project: &apos;ExamTimetable&apos;&#x0A;- Original element: &apos;examTimetable.ExamTimetable.schedule().modList&apos;&#x0A;- Renamed element: &apos;modList&apos;&#x0A;- Update references to refactored element" description="Rename local variable &apos;modList&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;examTimetable{ExamTimetable.java[ExamTimetable~schedule@modList!955!999!972!978!QIterator\&lt;QModule;&gt;;!0!false" name="modIT" references="true" stamp="1394484153581" version="1.0"/>
+</session>

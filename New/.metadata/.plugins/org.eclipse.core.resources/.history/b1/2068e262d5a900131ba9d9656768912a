@@ -1,0 +1,26 @@
+package newExam;
+import java.util.*;
+
+public class Student {
+	private String name;
+	private String studentID;
+	private List<Module> studiesModules = new ArrayList<Module>();
+
+	public Student(String name, String studentID, List<Module> studiesModules) {
+		this.name = name;
+		this.studentID = studentID;
+		this.studiesModules = studiesModules;
+	}
+	
+	public String getName(){
+		return name;
+	}
+	
+	public String getSiD() {
+		return studentID;
+	}
+	
+	public List<Student> getStudiesModules() {
+		return studiesModules;
+	}
+}

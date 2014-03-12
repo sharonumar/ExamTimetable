@@ -1,0 +1,5 @@
+package newExam;
+
+public enum RoomType {
+
+}

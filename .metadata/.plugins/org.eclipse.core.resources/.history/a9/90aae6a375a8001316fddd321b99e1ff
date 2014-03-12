@@ -1,0 +1,25 @@
+package examTimetable;
+
+import java.util.ArrayList;
+
+public class Modules implements Module {
+
+	@Override
+	public ArrayList<Student> getStudentsEnrolled() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void bookExam(Rooms room, Exam exam) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public Exam getExam() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,19 @@
+package examTimetable;
+
+public class Test {
+	
+	public static void main(String[] args) {
+		Student a = new Students("Paul", "Barber");
+		Student b = new Students("Emily", "Allsion");
+		
+		Exam exama = new Exams(3);
+		
+		Rooms rooma = new Room(100, RoomType.COMPUTER_CLUSTER, 2);
+		
+		Module moda = new Modules("CSC8005", exama);
+		
+		
+		
+	}
+
+}

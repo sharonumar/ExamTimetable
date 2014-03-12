@@ -1,0 +1,8 @@
+package examTimetable;
+import java.util.*;
+
+public interface Module {
+public ArrayList<Student> getStudentsEnrolled();
+public Exam getExam();
+
+}

@@ -1,0 +1,16 @@
+package newExam;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class ModuleTest {
+
+	@Test
+	public void test() {
+		Exam exam = new Exam(1);
+		
+		
+	}
+
+}
