@@ -31,6 +31,16 @@ public class Day {
 		return hours;
 	}
 	
+	public Hour getHour(int hour) {
+		Hour next = new Hour(0);
+		for(Hour h: hours) {
+			if (h.getHour() == hour) {
+				next = h;
+			}
+		}
+		return next;
+	}
+	
 	public String getDateString() {
 		Calendar c = Calendar.getInstance();
 		c.setTime(date);
