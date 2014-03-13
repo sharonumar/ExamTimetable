@@ -3,11 +3,11 @@ import java.util.*;
 
 public class Scheduler {
 	private List<Module> allModules = new ArrayList<Module>();
-	private List<Day> allDays = new ArrayList<Day>();
+	private List<Room> allRooms = new ArrayList<Room>();
 	
-	public Scheduler(List<Module> allModules, List<Day> allDays) {
+	public Scheduler(List<Module> allModules, List<Room> allRooms) {
 		this.allModules = allModules;
-		this.allDays = allDays;
+		this.allRooms = allRooms;
 	}
 	
 	//Backtrack Algorithm.
@@ -16,41 +16,50 @@ public class Scheduler {
 		for(Module module: allModules) {
 			Exam nextExam = module.getExam();
 			//Needs to have a check to see if the next Exam can be solved.
-			if(nextExam.getScheduled() == false) {
-				Exam testExam = nextExam;
-			if(canBeScheduled(testExam) == true){
+			if(canBeScheduled(nextExam) == true){
 				if(scheduleExam(nextExam)) {
 					return true;
 					}
 				}
-			}
-			}
-		exam.removeHours();
+		}
+		removeHours(exam);
 		exam = exam.returnBlank();
 		return false;
-	}
+		}
+	
+	 public void removeHours(Exam exam) {
+		 if(exam.getStartTime() != null && exam.getEndTime() != null && exam.getDay() != null) {
+		 for(int i = exam.getStartTime().getHour() ; i <= exam.getStartTime().getHour() + exam.getDuration() ; i++) {
+			 Hour h = exam.getDay().getHour(i);
+			 h.setAvailableTrue();
+		 }
+		 exam.getStartTime().setAvailableTrue();
+		 exam.getEndTime().setAvailableTrue();
+		 }
+	 }
 	
 	 public Boolean canBeScheduled(Exam exam) {
-		 for(Day day : allDays) {
+		 if(exam.getScheduled() == true) {
+			 return false;
+		 }
+		 for(Room room : allRooms) {
+		 for(Day day : room.getTimetable()) {
 				for(Hour start : day.getHours()) {
-					if(start.getAvailable() == true) {
-						start.setAvailableFalse();
-						exam.setStartTime(start);
-						exam.setDay(day);
+					Hour startTemp = new Hour(start.getHour());
+					if(startTemp.getAvailable() == true) {
+						startTemp.setAvailableFalse();
 						for(Hour end : day.getHours()) {
-							if(end.getAvailable() == true) {
-								if(end.getHour() - start.getHour() == exam.getDuration()) {
-									exam.removeHours();
-									exam = exam.returnBlank();
-									start.setAvailableTrue();
-									end.setAvailableTrue();		
+							Hour endTemp = new Hour(end.getHour());
+							if(endTemp.getAvailable() == true) {
+								if(endTemp.getHour() - startTemp.getHour() == exam.getDuration()) {
 									return true;
-								}
-							end.setAvailableFalse();
-						}
+									 }
+								endTemp.setAvailableFalse();
+							}
 						}
 					}
 				}
+		 	}
 		 }
 		 
 		 return false;
@@ -58,18 +67,19 @@ public class Scheduler {
 	 
 	
 	public Boolean book(Exam exam) {
-		if(exam.getScheduled() != true) {
-			for(Day day : allDays) {
+		for(Room room : allRooms) {
+			 for(Day day : room.getTimetable()) {
 				for(Hour start : day.getHours()) {
 					if(start.getAvailable() == true) {
 						start.setAvailableFalse();
 						exam.setStartTime(start);
-						exam.setDay(day);
 						for(Hour end : day.getHours()) {
 							if(end.getAvailable() == true) {
 								if(end.getHour() - start.getHour() == exam.getDuration()) {
 									exam.setEndTime(end);
 									exam.setScheduledTrue();
+									exam.setDay(day);
+									exam.setRoom(room);
 									return true;
 								}
 							end.setAvailableFalse();
@@ -77,7 +87,7 @@ public class Scheduler {
 					}
 				}
 			}
-		}
+		 }
 	}
 		return false;
 }

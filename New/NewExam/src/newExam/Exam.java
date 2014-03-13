@@ -66,22 +66,12 @@ public class Exam {
 	 scheduled = false;
  }
  
- public void removeHours() {
-	 if(startTime != null && day != null) {
-	 for(int i = startTime.getHour() ; i < (startTime.getHour() + duration) ; i++) {
-		 Hour h = day.getHour(i);
-		 h.setAvailableTrue();
-	 }
-	 startTime.setAvailableTrue();
-	 }
- }
- 
  public Exam returnBlank() {
 	 return new Exam(this.getDuration());
  }
 	
  public String toString() {
-	 return day.getDateString() + " " + startTime + " " +  endTime;
+	 return day.getDateString() + " " + startTime + " " +  endTime + " - " + getRoom().toString();
  }
 
 }

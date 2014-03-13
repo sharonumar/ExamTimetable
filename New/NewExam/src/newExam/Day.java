@@ -32,7 +32,7 @@ public class Day {
 	}
 	
 	public Hour getHour(int hour) {
-		Hour next = new Hour(0);
+		Hour next = new Hour(hour);
 		for(Hour h: hours) {
 			if (h.getHour() == hour) {
 				next = h;

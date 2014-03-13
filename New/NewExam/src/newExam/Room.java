@@ -15,6 +15,10 @@ public class Room {
 		this.capacity = capacity;
 	}
 	
+	public String toString() {
+		return roomNumber;
+	}
+	
 	public void setTimetable(int examDuration, Date startDate) {
 		for(int i = 0; i < examDuration; i++) {
 			timetable.add(new Day(startDate));

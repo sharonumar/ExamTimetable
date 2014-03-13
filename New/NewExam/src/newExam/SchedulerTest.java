@@ -48,14 +48,23 @@ public class SchedulerTest {
 		
 		
 		//Create exams for the modules.
-		Exam historyExam = new Exam(3);
-		Exam scienceExam = new Exam(3);
-		Exam sportExam = new Exam(2);
+		Exam historyExam = new Exam(2);
+		Exam scienceExam = new Exam(2);
+		Exam sportExam = new Exam(3);
 		Exam englishExam = new Exam(2);
-		Exam mathExam = new Exam(2);
-		Exam musicExam = new Exam(1);
+		Exam mathExam = new Exam(1);
+		Exam musicExam = new Exam(3);
 		Exam geoExam = new Exam(2);
 		Exam itExam = new Exam(1);
+		
+		Exam bioExam = new Exam(2);
+		Exam journoExam = new Exam(3);
+		Exam medExam = new Exam(2);
+		Exam teachExam = new Exam(3);
+		Exam foodExam = new Exam(1);
+		Exam woodExam = new Exam(1);
+		Exam engExam = new Exam(2);
+		Exam graphExam = new Exam(2);
 		
 		//Create the modules with the above date.
 		Module module = new Module("HIS100", "History", historyExam, studiesHistory);
@@ -68,6 +77,18 @@ public class SchedulerTest {
 		Module it = new Module("ICT123", "ICT", itExam, studiesIT);
 		
 		
+		//To test for students who have an exam at this time
+		//will need to generate new student lists.
+		Module bio = new Module("BIO555", "Biology", bioExam, studiesHistory);
+		Module journo = new Module("JOURN999", "Journalism", journoExam, studiesSport);
+		Module medicine = new Module("MED887", "Medicine", medExam, studiesEnglish);
+		Module teach = new Module("TEACH666", "Teach", teachExam, studiesScience);
+		Module food = new Module("FOOD999", "Food", foodExam, studiesMath);
+		Module wood = new Module("WOO111", "Wood", woodExam, studiesMusic);
+		Module engine = new Module("ENDIN1", "Engineering", engExam, studiesGeo);
+		Module graphics = new Module("Graph22", "Graphics", graphExam, studiesIT);
+		
+		
 		List<Module> allModules = new ArrayList<Module>();
 		//add all the modules to an allModules list.
 		allModules.add(module);
@@ -78,24 +99,62 @@ public class SchedulerTest {
 		allModules.add(music);
 		allModules.add(geo);
 		allModules.add(it);
+		allModules.add(bio);
+		allModules.add(journo);
+		allModules.add(medicine);
+		allModules.add(teach);
+		allModules.add(food);
+		allModules.add(wood);
+		allModules.add(engine);
+		allModules.add(graphics);
 		
 		
 		Date date = new Date();
 		//Create a exam timetable using the date, for 7 days with the modules created above.
-		ExamTimetableInfo examScheduler = new ExamTimetableInfo(2, date, allModules);
+		ExamTimetableInfo examScheduler = new ExamTimetableInfo(3, date, allModules);
 		//This example only has one room.
 		//create a room.
 		Room room = new Room("A100", RoomType.COMPUTER_CLUSTER, 50);
+		Room roomb = new Room("A200", RoomType.SPORT_HALL, 50);
+		Room roomc = new Room("A300", RoomType.SPORT_HALL, 20);
 		//set the timetable for the room, given the information from the examScheduler.
 		room.setTimetable(examScheduler.getExamDuration(), examScheduler.getStartDate());
-	
+		roomb.setTimetable(examScheduler.getExamDuration(), examScheduler.getStartDate());
+		roomc.setTimetable(examScheduler.getExamDuration(), examScheduler.getStartDate());
+		List<Room> allRooms = new ArrayList<Room>();
+		allRooms.add(room);
+		allRooms.add(roomb);
+		allRooms.add(roomc);
 		
-		Scheduler schedule = new Scheduler(allModules, room.getTimetable());
-			schedule.scheduleExam(allModules.get(0).getExam());
-		for(Module modules : allModules) {
-			System.out.println(modules + ": " + modules.getExam() + "\n");
+		
+		
+		
+		
+		/*
+		 * ALL DATA IS NOW ENTERED...
+		 * 
+		 * Scheduling the exams!
+		 */
+		Scheduler schedule = new Scheduler(allModules, allRooms);
+		try{
+			//Test to see if the first exam can be scheduled.
+			if(schedule.canBeScheduled(allModules.get(0).getExam()) == true) {
+				//run schedule
+				schedule.scheduleExam(allModules.get(0).getExam());
+			}
+			//otherwise there is no possible solution.
 		}
-		
+		catch (StackOverflowError e) {
+			System.out.println("Not all exams were sheduled. \n");
+		}
+		for(Module modules : allModules) {
+			try{
+			System.out.println(modules + ": " + modules.getExam() + "\n");
+			}
+			catch (NullPointerException e) {
+				System.out.println(modules + " exam wasn't scheduled.");
+			}
+		}
 	}
 
 }

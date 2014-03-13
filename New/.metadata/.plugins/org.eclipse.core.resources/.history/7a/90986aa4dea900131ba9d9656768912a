@@ -1,8 +1,0 @@
-package newExam;
-import java.util.*;
-public class Scheduler {
-	private List<Module> allModules = new ArrayList<Module>();
-	private List<Day> allDays = new ArrayList<Day>();
-
-
-}
