@@ -48,23 +48,23 @@ public class SchedulerTest {
 		
 		
 		//Create exams for the modules.
-		Exam historyExam = new Exam(2);
-		Exam scienceExam = new Exam(2);
-		Exam sportExam = new Exam(3);
-		Exam englishExam = new Exam(2);
-		Exam mathExam = new Exam(1);
-		Exam musicExam = new Exam(3);
-		Exam geoExam = new Exam(2);
-		Exam itExam = new Exam(1);
+		Exam historyExam = new Exam(3);
+		Exam scienceExam = new Exam(3);
+		Exam sportExam = new Exam(3, RoomType.SPORT_HALL);
+		Exam englishExam = new Exam(1);
+		Exam mathExam = new Exam(2);
+		Exam musicExam = new Exam(2);
+		Exam geoExam = new Exam(1);
+		Exam itExam = new Exam(1, RoomType.COMPUTER_CLUSTER);
 		
 		Exam bioExam = new Exam(2);
-		Exam journoExam = new Exam(3);
-		Exam medExam = new Exam(2);
-		Exam teachExam = new Exam(3);
+		Exam journoExam = new Exam(2);
+		Exam medExam = new Exam(3);
+		Exam teachExam = new Exam(2);
 		Exam foodExam = new Exam(1);
-		Exam woodExam = new Exam(1);
-		Exam engExam = new Exam(2);
-		Exam graphExam = new Exam(2);
+		Exam woodExam = new Exam(2);
+		Exam engExam = new Exam(3);
+		Exam graphExam = new Exam(1, RoomType.COMPUTER_CLUSTER);
 		
 		//Create the modules with the above date.
 		Module module = new Module("HIS100", "History", historyExam, studiesHistory);
@@ -111,12 +111,12 @@ public class SchedulerTest {
 		
 		Date date = new Date();
 		//Create a exam timetable using the date, for 7 days with the modules created above.
-		ExamTimetableInfo examScheduler = new ExamTimetableInfo(3, date, allModules);
+		ExamTimetableInfo examScheduler = new ExamTimetableInfo(2, date);
 		//This example only has one room.
 		//create a room.
 		Room room = new Room("A100", RoomType.COMPUTER_CLUSTER, 50);
 		Room roomb = new Room("A200", RoomType.SPORT_HALL, 50);
-		Room roomc = new Room("A300", RoomType.SPORT_HALL, 20);
+		Room roomc = new Room("A300", RoomType.LAB, 20);
 		//set the timetable for the room, given the information from the examScheduler.
 		room.setTimetable(examScheduler.getExamDuration(), examScheduler.getStartDate());
 		roomb.setTimetable(examScheduler.getExamDuration(), examScheduler.getStartDate());
@@ -124,7 +124,7 @@ public class SchedulerTest {
 		List<Room> allRooms = new ArrayList<Room>();
 		allRooms.add(room);
 		allRooms.add(roomb);
-		allRooms.add(roomc);
+		//allRooms.add(roomc);
 		
 		
 		
@@ -156,5 +156,7 @@ public class SchedulerTest {
 			}
 		}
 	}
+	
+	
 
 }

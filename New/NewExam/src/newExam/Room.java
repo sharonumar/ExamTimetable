@@ -47,5 +47,18 @@ public class Room {
 	public String getRoomNumber() {
 		return roomNumber;
 	}
+	
+	@Override 
+	public boolean equals(Object o) { 
+		if (o == this)
+			return true;
+		if (!(o instanceof Room))
+			return false;
+		Room r = (Room)o;
+
+		return r.roomNumber == roomNumber
+				&& r.type  == type
+					&& r.capacity == capacity;
+	}
 
 }

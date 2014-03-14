@@ -12,7 +12,7 @@ public class Day {
 		//Create the hours of a day which are available
 		//to have an exam in.
 		this.date = date;
-		for(int i = startTime; i<=endTime; i++)
+		for(int i = startTime; i<= endTime; i++)
 			hours.add(new Hour(i));
 	}
 
@@ -27,6 +27,10 @@ public class Day {
 		return print + "\n";
 	}
 	
+	public Date getDate() {
+		return date;
+	}
+	
 	public List<Hour> getHours() {
 		return hours;
 	}
@@ -39,6 +43,10 @@ public class Day {
 			}
 		}
 		return next;
+	}
+	
+	public int getFinishTime() {
+		return endTime;
 	}
 	
 	public String getDateString() {

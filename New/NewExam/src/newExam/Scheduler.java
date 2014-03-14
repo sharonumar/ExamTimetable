@@ -22,37 +22,37 @@ public class Scheduler {
 					}
 				}
 		}
-		removeHours(exam);
+		//Remove data from the exam.
+		Room roomNew = new Room(exam.getRoom().getRoomNumber(), exam.getRoom().getType(), 
+												exam.getRoom().getCapacity());
+		exam.setRoom(roomNew);
+		for(Room r : allRooms) {
+			if(r.equals(roomNew)) {
+				r = roomNew;
+			}
+		}
+		//Day examDay = new Day(exam.getDay().getDate());
+		//exam.setDay(examDay);
 		exam = exam.returnBlank();
 		return false;
 		}
-	
-	 public void removeHours(Exam exam) {
-		 if(exam.getStartTime() != null && exam.getEndTime() != null && exam.getDay() != null) {
-		 for(int i = exam.getStartTime().getHour() ; i <= exam.getStartTime().getHour() + exam.getDuration() ; i++) {
-			 Hour h = exam.getDay().getHour(i);
-			 h.setAvailableTrue();
-		 }
-		 exam.getStartTime().setAvailableTrue();
-		 exam.getEndTime().setAvailableTrue();
-		 }
-	 }
 	
 	 public Boolean canBeScheduled(Exam exam) {
 		 if(exam.getScheduled() == true) {
 			 return false;
 		 }
 		 for(Room room : allRooms) {
-		 for(Day day : room.getTimetable()) {
-				for(Hour start : day.getHours()) {
-					Hour startTemp = new Hour(start.getHour());
-					if(startTemp.getAvailable() == true) {
-						startTemp.setAvailableFalse();
-						for(Hour end : day.getHours()) {
-							Hour endTemp = new Hour(end.getHour());
-							if(endTemp.getAvailable() == true) {
-								if(endTemp.getHour() - startTemp.getHour() == exam.getDuration()) {
-									return true;
+			 if(exam.getRoomType() == null || exam.getRoomType() == room.getType()) {
+				 for(Day day : room.getTimetable()) {
+					 for(Hour start : day.getHours()) {
+						 Hour startTemp = new Hour(start.getHour());
+						 if(startTemp.getAvailable() == true) {
+							 startTemp.setAvailableFalse();
+							 for(Hour end : day.getHours()) {
+								 Hour endTemp = new Hour(end.getHour());
+								 if(endTemp.getAvailable() == true) {
+									 if(endTemp.getHour() - startTemp.getHour() == exam.getDuration()) {
+										 return true;
 									 }
 								endTemp.setAvailableFalse();
 							}
@@ -60,14 +60,15 @@ public class Scheduler {
 					}
 				}
 		 	}
-		 }
-		 
-		 return false;
+		}
+	}
+	 return false;
 	 }
 	 
 	
 	public Boolean book(Exam exam) {
 		for(Room room : allRooms) {
+			if(exam.getRoomType() == null || exam.getRoomType() == room.getType()) {
 			 for(Day day : room.getTimetable()) {
 				for(Hour start : day.getHours()) {
 					if(start.getAvailable() == true) {
@@ -76,6 +77,9 @@ public class Scheduler {
 						for(Hour end : day.getHours()) {
 							if(end.getAvailable() == true) {
 								if(end.getHour() - start.getHour() == exam.getDuration()) {
+									if(day.getFinishTime() == end.getHour()) {
+										end.setAvailableFalse();
+									}
 									exam.setEndTime(end);
 									exam.setScheduledTrue();
 									exam.setDay(day);
@@ -88,6 +92,7 @@ public class Scheduler {
 				}
 			}
 		 }
+		}
 	}
 		return false;
 }

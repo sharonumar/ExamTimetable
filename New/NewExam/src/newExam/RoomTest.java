@@ -35,7 +35,7 @@ public class RoomTest {
 		
 		Date date = new Date();
 		//Create a exam timetable using the date, for 7 days with the modules created above.
-		ExamTimetableInfo examScheduler = new ExamTimetableInfo(7, date, allModules);
+		ExamTimetableInfo examScheduler = new ExamTimetableInfo(7, date);
 		//This example only has one room.
 		//create a room.
 		Room room = new Room("A100", RoomType.COMPUTER_CLUSTER, 50);
