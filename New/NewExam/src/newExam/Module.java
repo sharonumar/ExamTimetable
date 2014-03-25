@@ -1,7 +1,7 @@
 package newExam;
 import java.util.*;
 
-public class Module {
+public class Module implements Comparable<Module> {
 	private String moduleID;
 	private String subject;
 	private Exam exam;
@@ -32,5 +32,13 @@ public class Module {
 	
 	public String toString() {
 		return moduleID + " " + subject;
+	}
+	
+	@Override
+	public int compareTo(Module m) {
+		     //Compares Exam
+		     int eno = exam.compareTo(m.exam);
+		     if (eno != 0) return eno;
+		     else return 0;
 	}
 }

@@ -133,3 +133,59 @@ Command-line arguments:  -os macosx -ws cocoa -arch x86 -product org.eclipse.epp
 
 !ENTRY org.eclipse.core.net 1 0 2014-03-14 10:10:44.616
 !MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+!SESSION 2014-03-16 15:35:06.883 -----------------------------------------------
+eclipse.buildId=4.3.0.M20130911-1000
+java.version=1.6.0_65
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/Paul/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86 -product org.eclipse.epp.package.java.product -keyring /Users/Paul/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2014-03-16 15:36:19.375
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+!SESSION 2014-03-20 12:56:03.534 -----------------------------------------------
+eclipse.buildId=4.3.0.M20130911-1000
+java.version=1.6.0_65
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/Paul/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86 -product org.eclipse.epp.package.java.product -keyring /Users/Paul/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2014-03-20 12:56:15.326
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+!SESSION 2014-03-24 10:34:53.168 -----------------------------------------------
+eclipse.buildId=4.3.0.M20130911-1000
+java.version=1.6.0_65
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/Paul/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86 -product org.eclipse.epp.package.java.product -keyring /Users/Paul/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2014-03-24 10:36:20.786
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+!SESSION 2014-03-24 13:38:40.912 -----------------------------------------------
+eclipse.buildId=4.3.0.M20130911-1000
+java.version=1.6.0_65
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/Paul/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86 -product org.eclipse.epp.package.java.product -keyring /Users/Paul/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2014-03-24 13:41:08.868
+!MESSAGE 'remote-models (http://download.eclipse.org/recommenders/models/kepler/, releases+snapshots)' did not send ETAG header for 'org.eclipse.recommenders:index:zip:0.0.0'.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2014-03-24 13:41:09.625
+!MESSAGE 'remote-models (http://download.eclipse.org/recommenders/models/kepler/, releases+snapshots)' did not send ETAG header for 'org.eclipse.recommenders:index:zip:0.0.0'.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2014-03-24 13:41:09.650
+!MESSAGE Updating index cancelled.
+!SESSION 2014-03-25 11:09:34.983 -----------------------------------------------
+eclipse.buildId=4.3.0.M20130911-1000
+java.version=1.6.0_65
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/Paul/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86 -product org.eclipse.epp.package.java.product -keyring /Users/Paul/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2014-03-25 11:09:45.115
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences

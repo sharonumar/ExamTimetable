@@ -1,8 +1,0 @@
-package newExam;
-import java.util.*;
-
-
-public class Day {
-	private List<Hour> hours = new ArrayList<Hour>();
-
-}

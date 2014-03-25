@@ -36,17 +36,32 @@ public class Day {
 	}
 	
 	public Hour getHour(int hour) {
-		Hour next = new Hour(hour);
 		for(Hour h: hours) {
 			if (h.getHour() == hour) {
-				next = h;
+				return h;
 			}
 		}
-		return next;
+		throw new IllegalArgumentException ("Hour can't be found");
 	}
 	
 	public int getFinishTime() {
 		return endTime;
+	}
+	
+	public int getStartTime(){
+		return startTime;
+	}
+	
+	public Boolean isFull() {
+		int count = 0;
+		for(Hour hour : hours) {
+			if(hour.getAvailable() == true)
+				count++;
+		}
+		if(count == 8) {
+			return true;
+		}
+		return false;
 	}
 	
 	public String getDateString() {

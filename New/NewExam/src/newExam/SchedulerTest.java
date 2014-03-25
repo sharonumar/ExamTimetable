@@ -2,6 +2,7 @@ package newExam;
 
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -57,14 +58,15 @@ public class SchedulerTest {
 		Exam geoExam = new Exam(1);
 		Exam itExam = new Exam(1, RoomType.COMPUTER_CLUSTER);
 		
-		Exam bioExam = new Exam(2);
+		
+		Exam bioExam = new Exam(2); 
 		Exam journoExam = new Exam(2);
 		Exam medExam = new Exam(3);
-		Exam teachExam = new Exam(2);
+		Exam teachExam = new Exam(1);
 		Exam foodExam = new Exam(1);
 		Exam woodExam = new Exam(2);
-		Exam engExam = new Exam(3);
-		Exam graphExam = new Exam(1, RoomType.COMPUTER_CLUSTER);
+		Exam engExam = new Exam(2);
+		Exam graphExam = new Exam(3);
 		
 		//Create the modules with the above date.
 		Module module = new Module("HIS100", "History", historyExam, studiesHistory);
@@ -79,6 +81,7 @@ public class SchedulerTest {
 		
 		//To test for students who have an exam at this time
 		//will need to generate new student lists.
+		
 		Module bio = new Module("BIO555", "Biology", bioExam, studiesHistory);
 		Module journo = new Module("JOURN999", "Journalism", journoExam, studiesSport);
 		Module medicine = new Module("MED887", "Medicine", medExam, studiesEnglish);
@@ -99,6 +102,8 @@ public class SchedulerTest {
 		allModules.add(music);
 		allModules.add(geo);
 		allModules.add(it);
+		
+		
 		allModules.add(bio);
 		allModules.add(journo);
 		allModules.add(medicine);
@@ -109,13 +114,21 @@ public class SchedulerTest {
 		allModules.add(graphics);
 		
 		
+		
+		System.out.println(allModules);
+		
+		Collections.sort(allModules);
+		
+		System.out.println(allModules);
+		
+		
 		Date date = new Date();
 		//Create a exam timetable using the date, for 7 days with the modules created above.
 		ExamTimetableInfo examScheduler = new ExamTimetableInfo(2, date);
 		//This example only has one room.
 		//create a room.
 		Room room = new Room("A100", RoomType.COMPUTER_CLUSTER, 50);
-		Room roomb = new Room("A200", RoomType.SPORT_HALL, 50);
+		Room roomb = new Room("A200", RoomType.SPORT_HALL, 100);
 		Room roomc = new Room("A300", RoomType.LAB, 20);
 		//set the timetable for the room, given the information from the examScheduler.
 		room.setTimetable(examScheduler.getExamDuration(), examScheduler.getStartDate());
@@ -126,6 +139,10 @@ public class SchedulerTest {
 		allRooms.add(roomb);
 		//allRooms.add(roomc);
 		
+		System.out.println(allRooms);
+		
+		Collections.sort(allRooms);
+		System.out.println(allRooms);
 		
 		
 		
@@ -136,27 +153,26 @@ public class SchedulerTest {
 		 * Scheduling the exams!
 		 */
 		Scheduler schedule = new Scheduler(allModules, allRooms);
+		System.out.println(schedule.getTotalTime());
 		try{
-			//Test to see if the first exam can be scheduled.
-			if(schedule.canBeScheduled(allModules.get(0).getExam()) == true) {
 				//run schedule
 				schedule.scheduleExam(allModules.get(0).getExam());
-			}
-			//otherwise there is no possible solution.
 		}
 		catch (StackOverflowError e) {
-			System.out.println("Not all exams were sheduled. \n");
+			System.out.println();
+			System.out.println("!!ERROR!!");
+			System.out.println(e);
+			System.out.println("!!ERROR!!");
+			System.out.println();
 		}
 		for(Module modules : allModules) {
 			try{
 			System.out.println(modules + ": " + modules.getExam() + "\n");
 			}
 			catch (NullPointerException e) {
-				System.out.println(modules + " exam wasn't scheduled.");
+				System.out.println(modules + " exam wasn't scheduled. \n");
 			}
 		}
-	}
-	
-	
-
+		System.out.println(schedule.getTotalTime());
+		}
 }

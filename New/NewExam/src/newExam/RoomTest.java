@@ -39,9 +39,10 @@ public class RoomTest {
 		//This example only has one room.
 		//create a room.
 		Room room = new Room("A100", RoomType.COMPUTER_CLUSTER, 50);
+		Room roomb = new Room("Aw00", RoomType.LAB, 20);
 		//set the timetable for the room, given the information from the examScheduler.
 		room.setTimetable(examScheduler.getExamDuration(), examScheduler.getStartDate());
-		
+		System.out.println(room.compareTo(roomb));
 	}
 
 }

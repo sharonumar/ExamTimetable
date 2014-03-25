@@ -1,7 +1,7 @@
 package newExam;
 import java.util.*;
 
-public class Room {
+public class Room implements Comparable <Room>{
 	private String roomNumber;
 	private RoomType type;
 	private int capacity;
@@ -60,5 +60,12 @@ public class Room {
 				&& r.type  == type
 					&& r.capacity == capacity;
 	}
+	
+	@Override
+	 public int compareTo(Room r) {
+	     int cap = r.capacity - capacity;
+	     if (cap !=0) return cap;
+	     else return 0;
+	 }
 
 }

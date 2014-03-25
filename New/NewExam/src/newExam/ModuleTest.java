@@ -21,7 +21,7 @@ public class ModuleTest {
 		studiesSport.add(studentb);
 		
 		//Create exams for the modules.
-		Exam exam = new Exam(1);
+		Exam exam = new Exam(2);
 		Exam exama = new Exam(1);
 		
 		//Create the modules with the above date.
@@ -42,6 +42,10 @@ public class ModuleTest {
 		System.out.println(studenta.getStudiesModules());
 		System.out.println(studentb.getStudiesModules());
 		System.out.println(studentc.getStudiesModules());
+		
+		System.out.println(module.compareTo(sport));
+		
+		
 	}
 
 }
