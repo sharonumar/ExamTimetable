@@ -51,12 +51,12 @@ public class SchedulerTest {
 		//Create exams for the modules.
 		Exam historyExam = new Exam(3);
 		Exam scienceExam = new Exam(3);
-		Exam sportExam = new Exam(3, RoomType.SPORT_HALL);
+		Exam sportExam = new Exam(1, 3, RoomType.SPORT_HALL);
 		Exam englishExam = new Exam(1);
 		Exam mathExam = new Exam(2);
 		Exam musicExam = new Exam(2);
 		Exam geoExam = new Exam(1);
-		Exam itExam = new Exam(1, RoomType.COMPUTER_CLUSTER);
+		Exam itExam = new Exam(2, 1, RoomType.COMPUTER_CLUSTER);
 		
 		
 		Exam bioExam = new Exam(2); 
@@ -127,9 +127,9 @@ public class SchedulerTest {
 		ExamTimetableInfo examScheduler = new ExamTimetableInfo(2, date);
 		//This example only has one room.
 		//create a room.
-		Room room = new Room("A100", RoomType.COMPUTER_CLUSTER, 50);
-		Room roomb = new Room("A200", RoomType.SPORT_HALL, 100);
-		Room roomc = new Room("A300", RoomType.LAB, 20);
+		Room room = new Room(1, "A100", RoomType.COMPUTER_CLUSTER, 50);
+		Room roomb = new Room(2, "A200", RoomType.SPORT_HALL, 100);
+		Room roomc = new Room(3, "A300", RoomType.LAB, 20);
 		//set the timetable for the room, given the information from the examScheduler.
 		room.setTimetable(examScheduler.getExamDuration(), examScheduler.getStartDate());
 		roomb.setTimetable(examScheduler.getExamDuration(), examScheduler.getStartDate());

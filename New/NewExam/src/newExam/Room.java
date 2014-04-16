@@ -2,6 +2,7 @@ package newExam;
 import java.util.*;
 
 public class Room implements Comparable <Room>{
+	private int rid;
 	private String roomNumber;
 	private RoomType type;
 	private int capacity;
@@ -9,7 +10,8 @@ public class Room implements Comparable <Room>{
 	//to act as a timetable for each room.
 	private List<Day> timetable = new ArrayList<Day>();
 	
-	public Room(String roomNumber, RoomType type, int capacity) {
+	public Room(int id, String roomNumber, RoomType type, int capacity) {
+		this.rid = id;
 		this.roomNumber = roomNumber;
 		this.type = type;
 		this.capacity = capacity;

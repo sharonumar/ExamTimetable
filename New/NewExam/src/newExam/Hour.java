@@ -37,7 +37,7 @@ public class Hour {
 			period = "pm";
 		if(time >= 10)
 			morning = "";
-		return morning + time + ":00" + " " + period;
+		return morning + time + ":00:00" + " " + period;
 	}
 	
 }

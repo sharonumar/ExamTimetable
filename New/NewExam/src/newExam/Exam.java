@@ -10,6 +10,7 @@ public class Exam implements Comparable<Exam> {
 	private int duration;
 	private RoomType type;
 	private List<Hour> examPeriod = new ArrayList<Hour>();
+	private int eid;
 	
  Exam(int duration) {
 		//When creating an exam all fields should be empty
@@ -21,10 +22,11 @@ public class Exam implements Comparable<Exam> {
 	 	this.duration = duration;
 	}
  
- Exam(int duration, RoomType type) {
+ Exam(int id, int duration, RoomType type) {
 	 	scheduled = false;
 	 	this.duration = duration;
 	 	this.type = type;
+	 	this.eid = id;
 	}
  
  public List<Hour> getExamPeriod() {
@@ -105,5 +107,11 @@ public class Exam implements Comparable<Exam> {
      if (dur !=0) return dur;
      else return 0;
  }
+
+public int getID() 
+{
+	// TODO Auto-generated method stub
+	return eid;
+}
 
 }

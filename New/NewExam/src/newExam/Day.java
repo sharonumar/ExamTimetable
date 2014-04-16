@@ -69,5 +69,14 @@ public class Day {
 		c.setTime(date);
 		return  "" + c.get(Calendar.DATE) + "/" + c.get(Calendar.MONTH) + "/"+ c.get(Calendar.YEAR) + ": ";
 	}
+	
+	public String getsqlDate()
+	{
+		String sqlDate = "";
+		Calendar c = Calendar.getInstance();
+		c.setTime(date);
+	    sqlDate += c.get(Calendar.YEAR) + "-"+ c.get(Calendar.MONTH) + "-"+ c.get(Calendar.DATE);
+	    return sqlDate;
+	}
 
 }

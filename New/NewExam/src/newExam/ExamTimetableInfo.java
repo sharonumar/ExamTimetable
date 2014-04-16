@@ -1,17 +1,21 @@
 package newExam;
 import java.util.*;
 
-public class ExamTimetableInfo {
+public class ExamTimetableInfo 
+{
+	//exam period durations?
 	private int examDuration;
 	private Date startDate;
 
 	
-	public ExamTimetableInfo(int examDuration, Date startDate) {
+	public ExamTimetableInfo(int examDuration, Date startDate) 
+	{
 		this.examDuration = examDuration;
 		this.startDate = startDate;
 	}
 	
-	public int getExamDuration() {
+	public int getExamDuration() 
+	{
 		return examDuration;
 	}
 	
