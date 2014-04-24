@@ -1,148 +1,76 @@
 package newExam;
 
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Date;
-import java.util.List;
-
 import org.junit.Test;
 
 public class SchedulerTest {
 
 	@Test
-	public void test() {
-		//Create students, and populate them into a List of there studies.
-		Student studenta = new Student("Paul Barber", "1000");
-		Student studentb = new Student("Chris Cooper", "A1000");
-		Student studentc = new Student("Paul, Barber", "B1000");
-		//Create a list of students studing each subject.
-		List<Student> studiesHistory = new ArrayList<Student> ();
-		studiesHistory.add(studenta);
-		studiesHistory.add(studentb);
-		studiesHistory.add(studentc);
+	public void test() throws SQLException {
+	
 		
-		List<Student> studiesSport = new ArrayList<Student>();
-		studiesSport.add(studentb);
+//		Exam bioExam = new Exam(2); 
+//		Exam journoExam = new Exam(2);
+//		Exam medExam = new Exam(3);
+//		Exam teachExam = new Exam(1);
+//		Exam foodExam = new Exam(1);
+//		Exam woodExam = new Exam(2);
+//		Exam engExam = new Exam(2);
+//		Exam graphExam = new Exam(3);
 		
-		List<Student> studiesScience = new ArrayList<Student>();
-		studiesScience.add(studenta);
-		
-		List<Student> studiesEnglish = new ArrayList<Student>();
-		studiesEnglish.add(studentc);
-		studiesEnglish.add(studenta);
-		studiesEnglish.add(studentb);
-		
-		List<Student> studiesMath = new ArrayList<Student>();
-		studiesMath.add(studentc);
-		
-		List<Student> studiesMusic = new ArrayList<Student>();
-		studiesMusic.add(studenta);
-		studiesMusic.add(studentb);
-		studiesMusic.add(studentc);
-		
-		List<Student> studiesGeo = new ArrayList<Student>();
-		studiesGeo.add(studentc);
-		
-		List<Student> studiesIT = new ArrayList<Student>();
-		studiesIT.add(studenta);
-		
-		
-		//Create exams for the modules.
-		Exam historyExam = new Exam(3);
-		Exam scienceExam = new Exam(3);
-		Exam sportExam = new Exam(1, 3, RoomType.SPORT_HALL);
-		Exam englishExam = new Exam(1);
-		Exam mathExam = new Exam(2);
-		Exam musicExam = new Exam(2);
-		Exam geoExam = new Exam(1);
-		Exam itExam = new Exam(2, 1, RoomType.COMPUTER_CLUSTER);
-		
-		
-		Exam bioExam = new Exam(2); 
-		Exam journoExam = new Exam(2);
-		Exam medExam = new Exam(3);
-		Exam teachExam = new Exam(1);
-		Exam foodExam = new Exam(1);
-		Exam woodExam = new Exam(2);
-		Exam engExam = new Exam(2);
-		Exam graphExam = new Exam(3);
-		
-		//Create the modules with the above date.
-		Module module = new Module("HIS100", "History", historyExam, studiesHistory);
-		Module sport = new Module("SPO109", "Sport", sportExam, studiesSport);
-		Module english = new Module("ENG100", "English", englishExam, studiesEnglish);
-		Module science = new Module("SCI11", "Science", scienceExam, studiesScience);
-		Module math = new Module("MAT666", "Math", mathExam, studiesMath);
-		Module music = new Module("MUS111", "Music", musicExam, studiesMusic);
-		Module geo = new Module("Geo121", "Geography", geoExam, studiesGeo);
-		Module it = new Module("ICT123", "ICT", itExam, studiesIT);
-		
-		
+
+		DBConnection conn = new DBConnection();
+		ArrayList<Module> modules = conn.loadModules();
 		//To test for students who have an exam at this time
 		//will need to generate new student lists.
 		
-		Module bio = new Module("BIO555", "Biology", bioExam, studiesHistory);
-		Module journo = new Module("JOURN999", "Journalism", journoExam, studiesSport);
-		Module medicine = new Module("MED887", "Medicine", medExam, studiesEnglish);
-		Module teach = new Module("TEACH666", "Teach", teachExam, studiesScience);
-		Module food = new Module("FOOD999", "Food", foodExam, studiesMath);
-		Module wood = new Module("WOO111", "Wood", woodExam, studiesMusic);
-		Module engine = new Module("ENDIN1", "Engineering", engExam, studiesGeo);
-		Module graphics = new Module("Graph22", "Graphics", graphExam, studiesIT);
-		
-		
-		List<Module> allModules = new ArrayList<Module>();
-		//add all the modules to an allModules list.
-		allModules.add(module);
-		allModules.add(sport);
-		allModules.add(math);
-		allModules.add(science);
-		allModules.add(english);
-		allModules.add(music);
-		allModules.add(geo);
-		allModules.add(it);
-		
-		
-		allModules.add(bio);
-		allModules.add(journo);
-		allModules.add(medicine);
-		allModules.add(teach);
-		allModules.add(food);
-		allModules.add(wood);
-		allModules.add(engine);
-		allModules.add(graphics);
+//		Module bio = new Module("BIO555", "Biology", bioExam, studiesHistory);
+//		Module journo = new Module("JOURN999", "Journalism", journoExam, studiesSport);
+//		Module medicine = new Module("MED887", "Medicine", medExam, studiesEnglish);
+//		Module teach = new Module("TEACH666", "Teach", teachExam, studiesScience);
+//		Module food = new Module("FOOD999", "Food", foodExam, studiesMath);
+//		Module wood = new Module("WOO111", "Wood", woodExam, studiesMusic);
+//		Module engine = new Module("ENDIN1", "Engineering", engExam, studiesGeo);
+//		Module graphics = new Module("Graph22", "Graphics", graphExam, studiesIT);
+//		
 		
 		
 		
-		System.out.println(allModules);
+//		allModules.add(bio);
+//		allModules.add(journo);
+//		allModules.add(medicine);
+//		allModules.add(teach);
+//		allModules.add(food);
+//		allModules.add(wood);
+//		allModules.add(engine);
+//		allModules.add(graphics);
 		
-		Collections.sort(allModules);
-		
-		System.out.println(allModules);
 		
 		
-		Date date = new Date();
-		//Create a exam timetable using the date, for 7 days with the modules created above.
-		ExamTimetableInfo examScheduler = new ExamTimetableInfo(2, date);
-		//This example only has one room.
-		//create a room.
-		Room room = new Room(1, "A100", RoomType.COMPUTER_CLUSTER, 50);
-		Room roomb = new Room(2, "A200", RoomType.SPORT_HALL, 100);
-		Room roomc = new Room(3, "A300", RoomType.LAB, 20);
+		System.out.println(modules);
+		
+		Collections.sort(modules);
+		
+		System.out.println(modules);
+		
+		
+		ExamTimetableInfo info = conn.loadExamPeriod();
+		
+		System.out.println("number of examination days: "+info.getExamDuration());
+		
 		//set the timetable for the room, given the information from the examScheduler.
-		room.setTimetable(examScheduler.getExamDuration(), examScheduler.getStartDate());
-		roomb.setTimetable(examScheduler.getExamDuration(), examScheduler.getStartDate());
-		roomc.setTimetable(examScheduler.getExamDuration(), examScheduler.getStartDate());
-		List<Room> allRooms = new ArrayList<Room>();
-		allRooms.add(room);
-		allRooms.add(roomb);
-		//allRooms.add(roomc);
 		
-		System.out.println(allRooms);
-		
-		Collections.sort(allRooms);
-		System.out.println(allRooms);
+		ArrayList<Room> rooms = conn.loadRooms();
+		for(Room r: rooms)
+		{
+			r.setTimetable(info.getExamDuration(),  info.getStartDate());
+		}
+		System.out.println(rooms);		
+		Collections.sort(rooms);
+		System.out.println(rooms);
 		
 		
 		
@@ -152,11 +80,11 @@ public class SchedulerTest {
 		 * 
 		 * Scheduling the exams!
 		 */
-		Scheduler schedule = new Scheduler(allModules, allRooms);
+		Scheduler schedule = new Scheduler(modules, rooms);
 		System.out.println(schedule.getTotalTime());
 		try{
 				//run schedule
-				schedule.scheduleExam(allModules.get(0).getExam());
+				schedule.scheduleExam(modules.get(0).getExam());
 		}
 		catch (StackOverflowError e) {
 			System.out.println();
@@ -165,14 +93,15 @@ public class SchedulerTest {
 			System.out.println("!!ERROR!!");
 			System.out.println();
 		}
-		for(Module modules : allModules) {
+		for(Module m : modules) {
 			try{
-			System.out.println(modules + ": " + modules.getExam() + "\n");
+			System.out.println(m + ": " + m.getExam() + "\n");
 			}
 			catch (NullPointerException e) {
 				System.out.println(modules + " exam wasn't scheduled. \n");
 			}
 		}
 		System.out.println(schedule.getTotalTime());
+		conn.saveExams(modules);
 		}
 }

@@ -17,8 +17,10 @@ public class Room implements Comparable <Room>{
 		this.capacity = capacity;
 	}
 	
-	public String toString() {
-		return roomNumber;
+	public String toString() 
+	{
+		String room = roomNumber + " "+capacity +" "+ getType();
+		return room;
 	}
 	
 	public void setTimetable(int examDuration, Date startDate) {
@@ -46,6 +48,10 @@ public class Room implements Comparable <Room>{
 		return type;
 	}
 	
+	public int getID()
+	{
+		return rid;
+	}
 	public String getRoomNumber() {
 		return roomNumber;
 	}

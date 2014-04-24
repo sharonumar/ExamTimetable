@@ -40,4 +40,15 @@ public class Hour {
 		return morning + time + ":00:00" + " " + period;
 	}
 	
+	public String SQLDate()
+	{
+		String period = "am";
+		String morning = "0";
+		if(time > 12)
+			period = "pm";
+		if(time >= 10)
+			morning = "";
+		return morning + time + ":00:00";
+	}
+	
 }
